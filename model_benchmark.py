@@ -69,7 +69,6 @@ class ModelBenchmark:
                 {"role": "user", "content": prompt}
             ]
             
-            # 发送请求
             # 构建API调用参数
             api_params = {
                 "model": config.model_name,
@@ -78,9 +77,9 @@ class ModelBenchmark:
                 "max_tokens": config.max_tokens if config.max_tokens else 1024,
             }
             
-            # 合并extra_body参数（如果存在）
+            # 合并extra_body参数（如果存在），使用官方提供的extra_body机制避免未知关键字错误
             if config.extra_body:
-                api_params.update(config.extra_body)
+                api_params["extra_body"] = config.extra_body
             
             response = client.chat.completions.create(**api_params)
             
