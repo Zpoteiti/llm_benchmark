@@ -2,9 +2,9 @@
 
 # 模型配置列表
 models:
-  Qwen_Qwen3-30B-A3B-FP8:
+  Qwen_Qwen2.5-32B-Instruct-GPTQ-Int4:
     base_url: "http://10.180.116.2"
-    port: 6384
+    port: 6382
     temperature: 0.7
     extra_body:
       chat_template_kwargs:
@@ -12,11 +12,12 @@ models:
 
   Qwen_Qwen3-32B-AWQ:
     base_url: "http://10.180.116.2"
-    port: 6387
+    port: 6388
     temperature: 0.7
     extra_body:
       chat_template_kwargs:
         enable_thinking: false
+
 
 # 可以在这里添加更多模型配置
 # deepseek-r1-32b:
