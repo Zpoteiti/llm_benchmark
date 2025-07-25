@@ -1,34 +1,91 @@
-# llm_benchmark
-自己用的模型基准测试
+# LLM Model Benchmark Tool
 
-## 安装依赖
+这是一个用于测试和比较不同LLM模型性能的工具，特别关注输出速度、token长度和响应时间等指标。
+
+## 新功能：详细时间分析
+
+### 时间计算改进
+
+程序现在支持更详细的时间分析，可以区分：
+
+- **预处理时间** (`preprocess_time`): 模型处理输入并开始生成第一个token的时间
+- **生成时间** (`generation_time`): 从第一个token到完成输出的时间  
+- **总时间** (`total_time`): 完整的请求-响应时间
+
+### 速度指标
+
+- **预处理速度** (`preprocess_speed`): `input_tokens / preprocess_time` (tokens/sec)
+- **生成速度** (`generation_speed`): `response_tokens / generation_time` (tokens/sec)
+- **总token速度** (`total_tokens_per_second`): `total_tokens / total_time` (tokens/sec)
+- **响应token速度** (`response_tokens_per_second`): `response_tokens / total_time` (tokens/sec)
+
+### 流式 vs 非流式模式
+
+#### 流式模式（默认，推荐）
+- 使用 `stream=True` 参数
+- 能够准确测量预处理时间（到首个token的时间）和生成时间
+- 提供最精确的时间分解
+
+#### 非流式模式
+- 使用 `--no-streaming` 参数启用
+- 只能测量总时间
+- 预处理时间和生成时间基于经验估算（预处理占总时间的10%）
+
+## 使用方法
+
+### 基本用法
 
 ```bash
-pip install -r requirements.txt
+# 使用流式模式测试所有模型（推荐）
+python3 model_benchmark.py
+
+# 使用非流式模式
+python3 model_benchmark.py --no-streaming
+
+# 测试特定模型
+python3 model_benchmark.py --models "model1,model2"
+
+# 指定测试次数
+python3 model_benchmark.py --runs 5
 ```
 
-## 运行基准测试
+### 命令行参数
 
-默认情况下会读取 `configs.yaml` 中全部模型配置并对 `prompts.py` 中的测试用例运行 3 轮基准测试：
+- `--models MODELS`: 要测试的模型（逗号分隔，默认：全部）
+- `--runs RUNS`: 每个提示词的运行次数（默认：3）
+- `--output OUTPUT`: 输出CSV文件名（默认：自动生成）
+- `--config CONFIG`: 配置文件路径（默认：configs.yaml）
+- `--no-streaming`: 禁用流式模式（默认启用流式）
 
-```bash
-python model_benchmark.py
-```
+## 输出指标说明
 
-常用参数：
+### CSV输出字段
 
-* `--models`：指定要测试的模型键，多个模型使用逗号分隔，例如 `--models Qwen_Qwen3-30B-A3B-FP8,Qwen_Qwen3-32B-AWQ`
-* `--runs`：每条提示词运行次数，默认 3 次
-* `--output`：结果 CSV 文件名，默认自动生成（示例：`benchmark_results_20250724_173718.csv`）
-* `--config`：自定义配置文件路径，默认 `configs.yaml`
+- `model_name`: 模型名称
+- `prompt_tokens`: 输入token数
+- `response_tokens`: 响应token数  
+- `total_tokens`: 总token数
+- `total_time`: 总时间（秒）
+- `preprocess_time`: 预处理时间（秒）
+- `first_token_time`: 首个token时间（秒）
+- `generation_time`: 生成时间（秒）
+- `total_tokens_per_second`: 总token速度
+- `response_tokens_per_second`: 响应token速度
+- `preprocess_speed`: 预处理速度（tokens/sec）
+- `generation_speed`: 生成速度（tokens/sec）
+- `latency`: 延迟（流式：首个token时间，非流式：总时间）
+- `timestamp`: 时间戳
+- `success`: 是否成功
+- `error_message`: 错误信息
+- `streaming_used`: 是否使用了流式模式
 
-完整示例：
+### 性能排名
 
-```bash
-python model_benchmark.py --models Qwen_Qwen3-30B-A3B-FP8 --runs 5 --output result.csv
-```
+程序会根据以下指标进行性能排名：
+- **流式结果**: 使用 `generation_speed` (生成速度)
+- **非流式结果**: 使用 `response_tokens_per_second` (响应token速度)
 
-## 配置文件说明（`configs.yaml`）
+## 配置文件
 
 ```yaml
 models:
