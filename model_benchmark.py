@@ -24,8 +24,8 @@ from prompts import test_prompts, SYSTEM_PROMPT
 class BenchmarkResult:
     """Results from a single benchmark run."""
     model_name: str
-    prompt_length: int
-    response_length: int
+    prompt_tokens: int
+    response_tokens: int
     total_tokens: int
     generation_time: float
     tokens_per_second: float
@@ -63,41 +63,51 @@ class ModelBenchmark:
         start_time = time.time()
         
         try:
-            # 准备消息，使用从prompts.py加载的系统提示词
+            
+            model = config.model_name
             messages = [
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": prompt}
             ]
+            temperature = config.temperature
+            max_tokens = config.max_tokens if config.max_tokens else 1024
+            # 使用配置中的extra_body，如果没有则为空字典
+            extra_body = config.extra_body if config.extra_body else {}
             
-            # 构建API调用参数
-            api_params = {
-                "model": config.model_name,
-                "messages": messages,
-                "temperature": config.temperature,
-                "max_tokens": config.max_tokens if config.max_tokens else 1024,
-            }
-            
-            # 合并extra_body参数（如果存在），使用官方提供的extra_body机制避免未知关键字错误
-            if config.extra_body:
-                api_params["extra_body"] = config.extra_body
-            
-            response = client.chat.completions.create(**api_params)
+            response = client.chat.completions.create(
+                model=model,
+                messages=messages,
+                max_tokens=max_tokens,
+                temperature=temperature,
+                extra_body=extra_body
+            )
             
             end_time = time.time()
             generation_time = end_time - start_time
             
-            # 计算指标
-            prompt_length = len(messages[1]['content'])
+            # 计算指标 - 使用API返回的真实token数量
             response_content = response.choices[0].message.content or ""
-            response_length = len(response_content)
-            total_tokens = response.usage.total_tokens if response.usage else 0
+            
+            # 优先使用API返回的精确token数，如果没有则回退到字符数估算
+            if response.usage:
+                prompt_tokens = response.usage.prompt_tokens
+                response_tokens = response.usage.completion_tokens
+                total_tokens = response.usage.total_tokens
+                print(f"prompt_tokens: {prompt_tokens}, response_tokens: {response_tokens}, total_tokens: {total_tokens}")
+            # else:
+            #     # 回退到字符数估算（不准确，但总比没有好）
+            #     print("response.usage is None, falling back to character count")
+            #     prompt_tokens = len(messages[1]['content'])
+            #     response_tokens = len(response_content)
+            #     total_tokens = prompt_tokens + response_tokens
+            
             tokens_per_second = total_tokens / generation_time if total_tokens > 0 else 0
             latency = generation_time
             
             return BenchmarkResult(
                 model_name=config.name,
-                prompt_length=prompt_length,
-                response_length=response_length,
+                prompt_tokens=prompt_tokens,
+                response_tokens=response_tokens,
                 total_tokens=total_tokens,
                 generation_time=generation_time,
                 tokens_per_second=tokens_per_second,
@@ -109,8 +119,8 @@ class ModelBenchmark:
             end_time = time.time()
             return BenchmarkResult(
                 model_name=config.name,
-                prompt_length=len(prompt),
-                response_length=0,
+                prompt_tokens=len(prompt),  # 错误情况下的估算
+                response_tokens=0,
                 total_tokens=0,
                 generation_time=end_time - start_time,
                 tokens_per_second=0,
@@ -175,7 +185,7 @@ class ModelBenchmark:
         # 写入CSV文件
         with open(output_file, 'w', newline='', encoding='utf-8') as csvfile:
             fieldnames = [
-                'model_name', 'prompt_length', 'response_length', 'total_tokens',
+                'model_name', 'prompt_tokens', 'response_tokens', 'total_tokens',
                 'generation_time', 'tokens_per_second', 'latency', 'timestamp',
                 'success', 'error_message'
             ]
@@ -185,8 +195,8 @@ class ModelBenchmark:
             for result in self.results:
                 writer.writerow({
                     'model_name': result.model_name,
-                    'prompt_length': result.prompt_length,
-                    'response_length': result.response_length,
+                    'prompt_tokens': result.prompt_tokens,
+                    'response_tokens': result.response_tokens,
                     'total_tokens': result.total_tokens,
                     'generation_time': result.generation_time,
                     'tokens_per_second': result.tokens_per_second,
@@ -233,7 +243,7 @@ class ModelBenchmark:
             if successful:
                 tps_values = [r.tokens_per_second for r in successful]
                 latency_values = [r.latency for r in successful]
-                tokens_per_response = [r.response_length for r in successful]
+                tokens_per_response = [r.response_tokens for r in successful]
                 
                 print(f"  Average tokens/sec: {statistics.mean(tps_values):.2f}")
                 print(f"  Median tokens/sec: {statistics.median(tps_values):.2f}")
