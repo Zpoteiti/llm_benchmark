@@ -1,543 +1,1342 @@
 # 测试提示词集合
 
 # 系统提示词
-SYSTEM_PROMPT = """ # 综合性企业战略咨询项目分析任务
+SYSTEM_PROMPT = '''# null
+Source: https://gofastmcp.com/changelog
 
-## 项目背景与概述
 
-您是一位资深的企业战略咨询顾问，受聘于一家名为"创新科技集团"的大型跨国企业。该企业成立于1995年，总部位于上海浦东新区张江高科技园区，在全球15个国家和地区设有分支机构，包括美国硅谷、德国慕尼黑、日本东京、新加坡、印度班加罗尔等重要科技中心，员工总数超过50,000人，其中研发人员占比达到40%。公司主营业务涵盖人工智能、云计算、物联网、新能源汽车、智能制造等多个前沿科技领域，年营收规模达到340亿人民币，位列中国科技企业前二十强。
 
-创新科技集团的发展历程可以分为三个重要阶段：第一阶段（1995-2005年）为创业起步期，主要从事软件开发和系统集成业务；第二阶段（2006-2015年）为快速扩张期，通过一系列收购兼并和自主研发，进入云计算和移动互联网领域；第三阶段（2016年至今）为转型升级期，重点布局人工智能、物联网等新兴技术领域，逐步确立了现有的五大事业部架构。
+<Update label="v2.10.6" description="2025-07-19">
+  ## [v2.10.6: Hymn for the Weekend](https://github.com/jlowin/fastmcp/releases/tag/v2.10.6)
 
-近年来，随着全球经济环境的快速变化、技术革新的加速、消费者行为的转变以及监管政策的调整，创新科技集团面临着前所未有的挑战和机遇。公司董事会在2024年初的年度战略会议上决定启动一项全面的战略转型计划，希望在未来5-10年内重新定位企业发展方向，优化业务组合，提升核心竞争力，实现可持续增长。董事长在内部讲话中强调："我们正站在新一轮科技革命的十字路口，必须以前瞻性的视野和颠覆性的思维，重新审视我们的战略定位和商业模式。"
+  A special Saturday release with many fixes.
 
-### 全球科技行业发展趋势分析
+  ## What's Changed
 
-#### 宏观经济环境影响
-全球经济在经历了2020-2022年的疫情冲击后，正处于缓慢复苏阶段。根据国际货币基金组织（IMF）2024年4月发布的《世界经济展望》报告，全球经济增长率预计将从2023年的3.5%回升至2024年的3.8%和2025年的4.0%。发达经济体增长预计将从2023年的2.1%上升至2024年的2.3%，新兴市场和发展中经济体增长预计将保持在4.8%左右的水平。
+  ### Enhancements 🔧
 
-科技行业作为经济增长的核心驱动力，呈现出以下显著特征：数字化转型加速推进，企业IT支出占比不断提高；人工智能技术商业化应用进入爆发期，预计到2025年全球AI市场规模将突破1.8万亿美元；绿色科技投资持续增长，全球清洁能源和可持续技术投资在2023年达到了1.7万亿美元，同比增长21%；地缘政治因素对科技产业链的影响加剧，各国纷纷加强本土科技产业布局，全球科技供应链呈现区域化重构趋势。
+  * Resolve #1139 -- Implement include\_context argument in Context.sample by [@codingjoe](https://github.com/codingjoe) in [#1141](https://github.com/jlowin/fastmcp/pull/1141)
+  * feat(settings): add log level normalization by [@ka2048](https://github.com/ka2048) in [#1171](https://github.com/jlowin/fastmcp/pull/1171)
+  * add server name to mounted server warnings by [@artificial-aidan](https://github.com/artificial-aidan) in [#1147](https://github.com/jlowin/fastmcp/pull/1147)
+  * Add StatefulProxyClient by [@hopeful0](https://github.com/hopeful0) in [#1109](https://github.com/jlowin/fastmcp/pull/1109)
 
-#### 行业竞争格局演变
-全球科技行业呈现出"三足鼎立"的竞争格局：美国凭借其在基础研究、风险投资和人才吸引方面的优势，继续保持领先地位，占据全球科技产业增加值的38%；中国在应用创新和规模效应方面表现突出，占比达到27%；欧洲在技术标准和监管框架方面具有优势，占比约为18%。其他地区如日本、韩国、印度等新兴科技国家合计占比约为17%。
+  ### Fixes 🐞
 
-行业集中度不断提高，形成了一批具有全球影响力的科技巨头。根据麦肯锡全球研究院2024年报告，全球市值排名前20的科技公司掌控了全球65%的技术专利和70%的风险投资流向。平台化战略成为主流，苹果App Store、谷歌Play、华为鸿蒙生态等超级平台构建了庞大的数字生态系统，重塑了产业价值分配格局。
+  * Fix OpenAPI empty parameters by [@FabrizioSandri](https://github.com/FabrizioSandri) in [#1128](https://github.com/jlowin/fastmcp/pull/1128)
+  * Fix title field preservation in tool transformations by [@jlowin](https://github.com/jlowin) in [#1131](https://github.com/jlowin/fastmcp/pull/1131)
+  * Fix optional parameter validation in OpenAPI integration by [@jlowin](https://github.com/jlowin) in [#1135](https://github.com/jlowin/fastmcp/pull/1135)
+  * Do not silently exclude the "context" key from JSON body by [@melkamar](https://github.com/melkamar) in [#1153](https://github.com/jlowin/fastmcp/pull/1153)
+  * Fix tool output schema generation to respect Pydantic serialization aliases by [@zzstoatzz](https://github.com/zzstoatzz) in [#1148](https://github.com/jlowin/fastmcp/pull/1148)
+  * fix: \_replace\_ref\_with\_defs; ensure ref\_path is string by [@itaru2622](https://github.com/itaru2622) in [#1164](https://github.com/jlowin/fastmcp/pull/1164)
+  * Fix nesting when making OpenAPI arrays and objects optional by [@melkamar](https://github.com/melkamar) in [#1178](https://github.com/jlowin/fastmcp/pull/1178)
+  * Fix `mcp-json` output format to include server name by [@jlowin](https://github.com/jlowin) in [#1185](https://github.com/jlowin/fastmcp/pull/1185)
+  * Only configure logging one time by [@jlowin](https://github.com/jlowin) in [#1187](https://github.com/jlowin/fastmcp/pull/1187)
 
-#### 技术创新方向
-当前科技行业正处于新一轮技术革命的关键时期，以下五大技术领域呈现出加速发展态势：
+  ### Docs 📚
 
-1. 人工智能：生成式AI技术从实验室走向商业化应用，多模态大模型实现了文本、图像、音频、视频的统一理解和生成；AI芯片架构持续创新，从通用计算向专用加速方向发展，能效比不断提升；AI伦理与治理成为焦点，各国纷纷出台AI监管框架。
+  * Update changelog.mdx by [@jlowin](https://github.com/jlowin) in [#1127](https://github.com/jlowin/fastmcp/pull/1127)
+  * Eunomia Authorization with native FastMCP's Middleware by [@tommitt](https://github.com/tommitt) in [#1144](https://github.com/jlowin/fastmcp/pull/1144)
+  * update api ref for new `mdxify` version by [@zzstoatzz](https://github.com/zzstoatzz) in [#1182](https://github.com/jlowin/fastmcp/pull/1182)
 
-2. 量子计算：全球量子计算赛道投资在2023年达到78亿美元，较上年增长45%；量子比特数量从2020年的50个提升至2024年的500个以上，量子体积实现指数级增长；量子算法在密码学、材料科学、药物研发等领域开始展现实用价值。
+  ### Other Changes 🦾
 
-3. 生物技术与数字健康：基因编辑技术CRISPR-Cas9进入临床应用阶段，全球已有超过30项基因治疗临床试验正在进行；数字健康平台用户规模突破50亿，远程医疗、可穿戴设备、AI辅助诊断成为行业新增长点；生物制造技术取得突破，有望颠覆传统化工和材料行业。
+  * Expand empty parameter filtering and add comprehensive tests by [@jlowin](https://github.com/jlowin) in [#1129](https://github.com/jlowin/fastmcp/pull/1129)
+  * Add no-commit-to-branch hook by [@zzstoatzz](https://github.com/zzstoatzz) in [#1149](https://github.com/jlowin/fastmcp/pull/1149)
+  * Update README.md by [@jlowin](https://github.com/jlowin) in [#1165](https://github.com/jlowin/fastmcp/pull/1165)
+  * skip on rate limit by [@zzstoatzz](https://github.com/zzstoatzz) in [#1183](https://github.com/jlowin/fastmcp/pull/1183)
+  * Remove deprecated proxy creation by [@jlowin](https://github.com/jlowin) in [#1186](https://github.com/jlowin/fastmcp/pull/1186)
+  * Separate integration tests from unit tests in CI by [@jlowin](https://github.com/jlowin) in [#1188](https://github.com/jlowin/fastmcp/pull/1188)
 
-4. 新能源与储能技术：锂离子电池能量密度从2015年的200Wh/kg提升至2024年的450Wh/kg，成本下降70%；固态电池研发取得进展，预计2027年实现商业化量产；氢燃料电池技术在交通和工业领域的应用加速，全球加氢站数量突破5000座；新型储能技术如液流电池、压缩空气储能、飞轮储能等多元化发展。
+  ## New Contributors
 
-5. 空间技术：商业航天市场规模从2015年的250亿美元增长至2024年的850亿美元；卫星互联网星座建设加速，Starlink、OneWeb、 Kuiper等项目合计部署卫星超过5000颗；太空旅游、月球基地建设、小行星资源开发等远期项目进入实质性规划阶段。
+  * [@FabrizioSandri](https://github.com/FabrizioSandri) made their first contribution in [#1128](https://github.com/jlowin/fastmcp/pull/1128)
+  * [@melkamar](https://github.com/melkamar) made their first contribution in [#1153](https://github.com/jlowin/fastmcp/pull/1153)
+  * [@codingjoe](https://github.com/codingjoe) made their first contribution in [#1141](https://github.com/jlowin/fastmcp/pull/1141)
+  * [@itaru2622](https://github.com/itaru2622) made their first contribution in [#1164](https://github.com/jlowin/fastmcp/pull/1164)
+  * [@ka2048](https://github.com/ka2048) made their first contribution in [#1171](https://github.com/jlowin/fastmcp/pull/1171)
+  * [@artificial-aidan](https://github.com/artificial-aidan) made their first contribution in [#1147](https://github.com/jlowin/fastmcp/pull/1147)
 
-## 当前业务状况详细分析
+  **Full Changelog**: [v2.10.5...v2.10.6](https://github.com/jlowin/fastmcp/compare/v2.10.5...v2.10.6)
+</Update>
 
-### 人工智能事业部
-人工智能事业部成立于2016年，是公司最年轻但发展最迅速的业务单元，年营收达到120亿人民币，占集团总营收的35%，近三年复合增长率超过45%。该事业部下设四个业务线：计算机视觉、自然语言处理、机器学习平台和智能决策系统。
+<Update label="v2.10.5" description="2025-07-11">
+  ## [v2.10.5: Middle Management](https://github.com/jlowin/fastmcp/releases/tag/v2.10.5)
 
-#### 业务线详细介绍
+  A maintenance release focused on OpenAPI refinements and middleware fixes, plus console improvements.
 
-##### 计算机视觉业务线
-计算机视觉业务线成立于2017年，现有员工1,200人，年营收42亿人民币，占AI事业部总营收的35%。该业务线拥有500项发明专利，核心技术涵盖以下几个方向：
+  ## What's Changed
 
-- 通用目标检测：自研的"InnoDet"算法在COCO数据集上实现了56.4AP的检测精度，同时保持30fps的实时处理速度，性能超越YOLOv8和Faster R-CNN等主流算法
-- 人脸识别技术：在LFW数据集上达到99.87%的识别准确率，在百万级人脸库中实现亚秒级检索，支持口罩遮挡、光线变化、年龄跨度等复杂场景
-- 图像分割技术：提出的"InnoSeg"语义分割算法在Cityscapes数据集上达到86.2%的mIoU，实例分割在COCO数据集上达到49.3AP
-- 视频分析技术：支持行为识别、异常检测、多目标跟踪等功能，单GPU可同时处理32路1080P视频流
+  ### Enhancements 🔧
 
-主要产品包括：
+  * Fix Claude Code CLI detection for npm global installations by [@jlowin](https://github.com/jlowin) in [#1106](https://github.com/jlowin/fastmcp/pull/1106)
+  * Fix OpenAPI parameter name collisions with location suffixing by [@jlowin](https://github.com/jlowin) in [#1107](https://github.com/jlowin/fastmcp/pull/1107)
+  * Add mirrored component support for proxy servers by [@jlowin](https://github.com/jlowin) in [#1105](https://github.com/jlowin/fastmcp/pull/1105)
 
-1. 智慧安防系统：提供人脸识别门禁、异常行为预警、人群密度分析等功能，已部署在全国200多个城市的公共安全领域，市场占有率达到18%
-2. 智慧零售解决方案：通过货架商品识别、顾客行为分析、精准营销推荐等功能，帮助零售企业提升销售额15-20%，已服务沃尔玛、永辉、苏宁等100多家连锁企业
-3. 医疗影像诊断系统：覆盖肺结节检测、眼底疾病筛查、皮肤病变识别等12个病种，获得NMPA三类医疗器械认证，在全国300多家医院应用
-4. 工业质检平台：针对电子制造、汽车零部件、纺织服装等行业提供缺陷检测解决方案，检测准确率达到99.2%，较人工检测效率提升10倍以上
+  ### Fixes 🐞
 
-##### 自然语言处理业务线
-自然语言处理业务线成立于2018年，现有员工950人，年营收30亿人民币，占AI事业部总营收的25%。该业务线的核心技术优势在于多语言处理和行业知识融合，主要技术方向包括：
+  * Fix OpenAPI deepObject style parameter encoding by [@jlowin](https://github.com/jlowin) in [#1122](https://github.com/jlowin/fastmcp/pull/1122)
+  * xfail when github token is not set ('' or None) by [@jlowin](https://github.com/jlowin) in [#1123](https://github.com/jlowin/fastmcp/pull/1123)
+  * fix: replace oneOf with anyOf in OpenAPI output schemas by [@MagnusS0](https://github.com/MagnusS0) in [#1119](https://github.com/jlowin/fastmcp/pull/1119)
+  * Fix middleware list result types by [@jlowin](https://github.com/jlowin) in [#1125](https://github.com/jlowin/fastmcp/pull/1125)
+  * Improve console width for logo by [@jlowin](https://github.com/jlowin) in [#1126](https://github.com/jlowin/fastmcp/pull/1126)
 
-- 预训练语言模型：自主研发的"InnoLM"系列模型参数规模从10亿到500亿不等，在GLUE、SuperGLUE等国际评测集上取得优异成绩
-- 多语言处理：支持100种以上语言的文本理解和生成，在低资源语言处理方面达到国际领先水平
-- 知识图谱：构建了涵盖20个行业的专业知识图谱，累计实体数量超过5亿，关系数量超过20亿
-- 对话系统技术：支持任务型对话、闲聊对话、知识问答等多种交互模式，上下文理解能力达到40轮以上
+  ### Docs 📚
 
-主要产品包括：
+  * Improve transport + integration docs by [@jlowin](https://github.com/jlowin) in [#1103](https://github.com/jlowin/fastmcp/pull/1103)
+  * Update proxy.mdx by [@coldfire-x](https://github.com/coldfire-x) in [#1108](https://github.com/jlowin/fastmcp/pull/1108)
 
-1. 智能客服平台：支持文本、语音、视频等多渠道接入，意图识别准确率达到92%，问题解决率达到85%，较传统人工客服成本降低40%
-2. 文档智能分析系统：支持合同审查、简历筛选、财务报表分析等场景，处理准确率达到96%，效率提升80%以上
-3. 多语言翻译平台：支持实时口译和文档翻译，在WMT评测中达到专业八级水平，服务于外交、外贸、国际会议等场景
-4. 智能内容生成平台：提供新闻写作、营销文案、产品描述等自动化内容生成服务，已与新华社、央视新闻等媒体建立合作
+  ### Other Changes 🦾
 
-##### 机器学习平台业务线
-机器学习平台业务线成立于2019年，现有员工850人，年营收24亿人民币，占AI事业部总营收的20%。该业务线专注于为企业客户提供端到端的AI开发和部署工具链，主要产品包括：
+  * Update github remote server tests with secret by [@jlowin](https://github.com/jlowin) in [#1112](https://github.com/jlowin/fastmcp/pull/1112)
 
-1. InnoAI Studio：一站式机器学习开发平台，集成数据标注、特征工程、模型训练、超参数优化、模型部署等全流程功能
-2. InnoModel Zoo：包含200+预训练模型的模型库，支持计算机视觉、自然语言处理、语音识别等多个领域
-3. InnoServe：模型服务平台，支持多模型管理、A/B测试、流量控制、监控告警等功能，单集群可支持10,000+模型实例
-4. InnoEdge：边缘AI部署工具，支持模型压缩、量化、编译等优化，使AI模型在边缘设备上的运行效率提升3-5倍
+  ## New Contributors
 
-该业务线已服务客户500多家，包括金融、制造、医疗、教育等多个行业。典型客户案例包括：
-- 中国工商银行：通过InnoAI Studio构建了智能风控模型，将信贷违约预测准确率提升了18%
-- 中芯国际：利用机器学习平台优化芯片制造工艺参数，良率提升2.3个百分点，年节约成本超过12亿元
-- 复旦大学附属中山医院：基于InnoAI Studio开发了肺结节AI辅助诊断系统，诊断效率提升3倍
+  * [@coldfire-x](https://github.com/coldfire-x) made their first contribution in [#1108](https://github.com/jlowin/fastmcp/pull/1108)
+  * [@MagnusS0](https://github.com/MagnusS0) made their first contribution in [#1119](https://github.com/jlowin/fastmcp/pull/1119)
 
-##### 智能决策系统业务线
-智能决策系统业务线成立于2020年，现有员工1,000人，年营收24亿人民币，占AI事业部总营收的20%。该业务线专注于将AI技术与行业业务流程深度融合，提供数据驱动的决策支持解决方案，主要产品方向包括：
+  **Full Changelog**: [v2.10.4...v2.10.5](https://github.com/jlowin/fastmcp/compare/v2.10.4...v2.10.5)
+</Update>
 
-1. 供应链智能优化系统：基于强化学习和运筹优化算法，提供需求预测、库存优化、路径规划等功能，帮助企业降低库存成本20-30%，提高订单满足率15-20%
-2. 智能风控平台：结合机器学习和知识图谱技术，构建全链路风险识别和预警体系，已在银行、保险、证券等金融领域广泛应用
-3. 精准营销系统：通过用户画像、兴趣推荐、营销效果预测等功能，帮助企业提升营销ROI 30%以上，客户获取成本降低25%
-4. 智能制造决策系统：基于工业大数据和AI算法，提供生产调度优化、质量预测、设备维护预警等功能，帮助制造企业提升生产效率15%，降低能耗10%
+<Update label="v2.10.4" description="2025-07-09">
+  ## [v2.10.4: Transport-ation](https://github.com/jlowin/fastmcp/releases/tag/v2.10.4)
 
-该业务线与SAP、Oracle、Salesforce等国际企业软件巨头建立了战略合作关系，共同开拓企业智能决策市场。
+  A quick fix to ensure the CLI accepts "streamable-http" as a valid transport option.
 
-#### 市场竞争分析
-该事业部在国内市场排名第二，仅次于百度，全球排名进入前十。根据IDC 2023年第四季度报告，创新科技集团AI业务在中国AI软件市场的份额达到12.3%，百度以18.7%位居第一，阿里巴巴以9.8%位居第三，腾讯以8.5%位居第四。
+  ## What's Changed
 
-主要竞争对手分析：
+  ### Fixes 🐞
 
-1. 百度：在通用AI技术和生态建设方面具有优势，Apollo自动驾驶平台和飞桨深度学习框架形成了差异化竞争力
-2. 阿里巴巴：依托电商、金融等场景优势，在零售AI、金融AI等领域表现突出，数据资源丰富
-3. 腾讯：凭借社交场景入口优势，在内容AI、游戏AI等领域领先，用户触达能力强
-4. 商汤科技、旷视科技：专注于计算机视觉领域，技术单点突破能力强，但产品线相对单一
-5. 国际巨头（谷歌、微软、亚马逊）：技术积累深厚，全球化布局完善，但在本地化服务和响应速度方面存在劣势
+  * Ensure the CLI accepts "streamable-http" as a valid transport by [@jlowin](https://github.com/jlowin) in [#1099](https://github.com/jlowin/fastmcp/pull/1099)
 
-竞争策略：采取"技术+场景"双轮驱动策略，一方面持续加大研发投入，保持技术领先；另一方面深耕行业场景，形成差异化解决方案，构建行业壁垒。
+  **Full Changelog**: [v2.10.3...v2.10.4](https://github.com/jlowin/fastmcp/compare/v2.10.3...v2.10.4)
+</Update>
 
-#### 研发体系与创新能力
-研发团队规模达到8,000人，包括300名博士学位研究人员和150名海外归国专家。研发组织架构采用"中央研究院+业务线研发团队"的模式：
+<Update label="v2.10.3" description="2025-07-09">
+  ## [v2.10.3: CLI Me a River](https://github.com/jlowin/fastmcp/releases/tag/v2.10.3)
 
-- 中央研究院：300人规模，专注于基础研究和前沿技术探索，包括大模型、多模态学习、机器人学等方向
-- 业务线研发团队：按业务线划分，专注于应用技术研发和产品化落地
-- 联合实验室：与清华大学、北京大学、斯坦福大学等12所国内外知名院校建立联合实验室，聚焦基础理论和关键技术突破
+  A major CLI overhaul featuring a complete refactor from typer to cyclopts, new IDE integrations, and comprehensive OpenAPI improvements.
 
-研发投入方面，2023年研发费用达到25亿人民币，占AI事业部营收的20.8%。研发投入重点方向包括：
+  ## What's Changed
 
-1. 大模型技术：年投入8亿人民币，研发通用大模型和行业大模型
-2. AI芯片适配与优化：年投入3亿人民币，针对不同芯片架构进行模型优化
-3. 行业知识工程：年投入4亿人民币，构建行业知识库和专业领域模型
-4. 人机交互技术：年投入2亿人民币，研发自然交互界面和情感计算技术
+  ### New Features 🎉
 
-专利布局方面，累计申请AI相关专利2,500项，其中发明专利占比70%，PCT国际专利申请500项。专利覆盖范围包括：基础算法（35%）、硬件加速（15%）、应用系统（30%）、数据处理（20%）。
+  * Refactor CLI from typer to cyclopts and add comprehensive tests by [@jlowin](https://github.com/jlowin) in [#1062](https://github.com/jlowin/fastmcp/pull/1062)
+  * Add output schema support for OpenAPI tools by [@jlowin](https://github.com/jlowin) in [#1073](https://github.com/jlowin/fastmcp/pull/1073)
 
-### 云计算事业部
-云计算事业部成立于2010年，是公司的传统优势业务，年营收85亿人民币，占集团总营收的25%。该事业部提供IaaS（基础设施即服务）、PaaS（平台即服务）、SaaS（软件即服务）全栈云服务，形成了完整的云计算产品矩阵。
+  ### Enhancements 🔧
 
-#### 基础设施服务（IaaS）
-在基础设施层面，公司在亚太地区运营23个数据中心，总计算能力超过100万核CPU和50万张GPU卡。数据中心分布在中国大陆的北京、上海、深圳、成都等一线城市，以及香港、新加坡、东京、首尔等海外重要节点。
+  * Add Cursor support via CLI integration by [@jlowin](https://github.com/jlowin) in [#1052](https://github.com/jlowin/fastmcp/pull/1052)
+  * Add Claude Code install integration by [@jlowin](https://github.com/jlowin) in [#1053](https://github.com/jlowin/fastmcp/pull/1053)
+  * Generate MCP JSON config output from CLI as new `fastmcp install` command by [@jlowin](https://github.com/jlowin) in [#1056](https://github.com/jlowin/fastmcp/pull/1056)
+  * Use isawaitable instead of iscoroutine by [@jlowin](https://github.com/jlowin) in [#1059](https://github.com/jlowin/fastmcp/pull/1059)
+  * feat: Add `--path` Option to CLI for HTTP/SSE Route by [@davidbk-legit](https://github.com/davidbk-legit) in [#1087](https://github.com/jlowin/fastmcp/pull/1087)
+  * Fix concurrent proxy client operations with session isolation by [@jlowin](https://github.com/jlowin) in [#1083](https://github.com/jlowin/fastmcp/pull/1083)
 
-数据中心详细情况：
+  ### Fixes 🐞
 
-1. 北京数据中心：总建筑面积8万平方米，单机柜功率密度6kW，PUE值1.22，部署服务器5万台
-2. 上海数据中心：总建筑面积10万平方米，单机柜功率密度8kW，PUE值1.20，部署服务器7万台
-3. 深圳数据中心：总建筑面积6万平方米，单机柜功率密度6kW，PUE值1.25，部署服务器4万台
-4. 海外数据中心：香港、新加坡、东京、首尔四地数据中心总建筑面积15万平方米，部署服务器10万台
+  * Refactor Client context management to avoid concurrency issue by [@hopeful0](https://github.com/hopeful0) in [#1054](https://github.com/jlowin/fastmcp/pull/1054)
+  * Keep json schema \$defs on transform by [@strawgate](https://github.com/strawgate) in [#1066](https://github.com/jlowin/fastmcp/pull/1066)
+  * Ensure fastmcp version copy is plaintext by [@jlowin](https://github.com/jlowin) in [#1071](https://github.com/jlowin/fastmcp/pull/1071)
+  * Fix single-element list unwrapping in tool content by [@jlowin](https://github.com/jlowin) in [#1074](https://github.com/jlowin/fastmcp/pull/1074)
+  * Fix max recursion error when pruning OpenAPI definitions by [@dimitribarbot](https://github.com/dimitribarbot) in [#1092](https://github.com/jlowin/fastmcp/pull/1092)
+  * Fix OpenAPI tool name registration when modified by mcp\_component\_fn by [@jlowin](https://github.com/jlowin) in [#1096](https://github.com/jlowin/fastmcp/pull/1096)
 
-所有数据中心均采用绿色节能设计，PUE值控制在1.3以下，符合国际先进标准。通过了ISO27001信息安全管理体系、ISO22301业务连续性管理体系、TL9000通信质量体系等多项国际认证。
+  ### Docs 📚
 
-计算资源产品包括：
+  * Docs: add example of more concise way to use bearer auth by [@neilconway](https://github.com/neilconway) in [#1055](https://github.com/jlowin/fastmcp/pull/1055)
+  * Update favicon by [@jlowin](https://github.com/jlowin) in [#1058](https://github.com/jlowin/fastmcp/pull/1058)
+  * Update environment note by [@jlowin](https://github.com/jlowin) in [#1075](https://github.com/jlowin/fastmcp/pull/1075)
+  * Add fastmcp version --copy documentation by [@jlowin](https://github.com/jlowin) in [#1076](https://github.com/jlowin/fastmcp/pull/1076)
 
-- 弹性云服务器（ECS）：提供从1核2G到256核1024G的多种配置，支持x86、ARM等多种架构
-- 裸金属服务器：提供物理机服务，满足高性能计算需求，支持GPU、FPGA等加速卡
-- 弹性容器服务（ECS）：基于Kubernetes的容器编排服务，支持自动扩缩容、滚动更新等功能
-- 高性能计算（HPC）集群：专为科学计算、工程仿真等场景优化，提供低延迟、高带宽的计算环境
+  ### Other Changes 🦾
 
-存储资源产品包括：
+  * Remove asserts and add documentation following #1054 by [@jlowin](https://github.com/jlowin) in [#1057](https://github.com/jlowin/fastmcp/pull/1057)
+  * Add --copy flag for fastmcp version by [@jlowin](https://github.com/jlowin) in [#1063](https://github.com/jlowin/fastmcp/pull/1063)
+  * Fix docstring format for fastmcp.client.Client by [@neilconway](https://github.com/neilconway) in [#1094](https://github.com/jlowin/fastmcp/pull/1094)
 
-- 对象存储（OBS）：提供无限扩展的对象存储服务，支持冷热数据分级存储，单对象最大支持48TB
-- 块存储：提供高性能、低延迟的块级存储服务，IOPS可达10万级，时延低至0.1ms
-- 文件存储：提供共享文件存储服务，支持NFS、CIFS等协议，适用于媒体处理、大数据分析等场景
-- 归档存储：提供低成本、高可靠性的长期数据归档服务，数据持久性达到99.999999999%
+  ## New Contributors
 
-网络资源产品包括：
+  * [@neilconway](https://github.com/neilconway) made their first contribution in [#1055](https://github.com/jlowin/fastmcp/pull/1055)
+  * [@davidbk-legit](https://github.com/davidbk-legit) made their first contribution in [#1087](https://github.com/jlowin/fastmcp/pull/1087)
+  * [@dimitribarbot](https://github.com/dimitribarbot) made their first contribution in [#1092](https://github.com/jlowin/fastmcp/pull/1092)
 
-- 虚拟私有云（VPC）：提供隔离的网络环境，支持自定义网络拓扑和安全策略
-- 负载均衡：提供四层和七层负载均衡服务，支持百万级并发连接
-- CDN加速：在全球部署200+加速节点，覆盖100+国家和地区，平均响应时间低于50ms
-- 专线服务：提供与数据中心的专线连接，带宽从2Mbps到10Gbps不等
+  **Full Changelog**: [v2.10.2...v2.10.3](https://github.com/jlowin/fastmcp/compare/v2.10.2...v2.10.3)
+</Update>
 
-#### 平台服务（PaaS）
-在平台服务层面，公司提供容器服务、微服务架构、DevOps工具链、数据库服务、大数据分析等中间件产品。特别是在容器编排和微服务治理方面，公司的技术水平处于行业领先地位，Kubernetes集群管理能力可支持万节点规模。
+<Update label="v2.10.2" description="2025-07-05">
+  ## [v2.10.2: Forward March](https://github.com/jlowin/fastmcp/releases/tag/v2.10.2)
 
-主要PaaS产品包括：
+  The headline feature of this release is the ability to "forward" advanced MCP interactions like logging, progress, and elicitation through proxy servers. If the remote server requests an elicitation, the proxy client will pass that request to the new, "ultimate" client.
 
-1. 容器服务平台：基于Kubernetes的容器管理服务，支持多集群管理、自动扩缩容、滚动更新等功能，已通过CNCF认证
-2. 微服务平台：提供服务注册发现、配置中心、API网关、服务熔断降级等微服务治理能力
-3. DevOps平台：集成代码管理、持续集成、持续部署、测试管理等全流程DevOps工具链
-4. 数据库服务：提供关系型数据库（MySQL、PostgreSQL）、NoSQL数据库（MongoDB、Redis）、时序数据库等多种数据库服务，支持自动备份、故障转移、读写分离等功能
-5. 大数据平台：基于Hadoop、Spark、Flink等开源技术构建的大数据处理平台，提供批处理、流处理、实时分析等能力
-6. AI开发平台：提供数据标注、模型训练、推理部署等AI开发全流程支持，内置100+算法模板
+  ## What's Changed
 
-#### 软件服务（SaaS）
-在软件服务层面，公司开发了企业级办公套件、客户关系管理系统、企业资源规划系统、商业智能分析等SaaS产品，服务于不同行业的企业客户需求。
+  ### New Features 🎉
 
-主要SaaS产品包括：
+  * Proxy support advanced MCP features by [@hopeful0](https://github.com/hopeful0) in [#1022](https://github.com/jlowin/fastmcp/pull/1022)
 
-1. InnoOffice企业办公套件：包含文档处理、表格分析、演示文稿、邮件客户端等组件，兼容主流办公软件格式，支持多人实时协作
-2. InnoCRM客户关系管理系统：覆盖客户管理、销售管理、营销管理、服务管理等全流程，帮助企业提升客户满意度和销售效率
-3. InnoERP企业资源规划系统：整合财务、采购、生产、库存、人力资源等业务模块，提供一体化企业管理解决方案
-4. InnoBI商业智能分析平台：支持数据可视化、自助式分析、预测分析等功能，帮助企业挖掘数据价值
+  ### Enhancements 🔧
 
-这些SaaS产品采用订阅制商业模式，按用户数和功能模块收费，平均续约率达到88%。
+  * Re-add splash screen by [@jlowin](https://github.com/jlowin) in [#1027](https://github.com/jlowin/fastmcp/pull/1027)
+  * Reduce banner padding by [@jlowin](https://github.com/jlowin) in [#1030](https://github.com/jlowin/fastmcp/pull/1030)
+  * Allow per-server timeouts in MCPConfig by [@cegersdoerfer](https://github.com/cegersdoerfer) in [#1031](https://github.com/jlowin/fastmcp/pull/1031)
+  * Support 'scp' claim for OAuth scopes in BearerAuthProvider by [@jlowin](https://github.com/jlowin) in [#1033](https://github.com/jlowin/fastmcp/pull/1033)
+  * Add path expansion to image/audio/file by [@jlowin](https://github.com/jlowin) in [#1038](https://github.com/jlowin/fastmcp/pull/1038)
+  * Ensure multi-client configurations use new ProxyClient by [@jlowin](https://github.com/jlowin) in [#1045](https://github.com/jlowin/fastmcp/pull/1045)
 
-#### 客户结构与市场表现
-客户群体结构相对均衡，中小企业客户占60%，大型企业客户占40%。中小企业客户主要使用标准化的云服务产品，客单价相对较低但数量庞大；大型企业客户多采用定制化解决方案，项目金额从数百万到数千万不等。
+  ### Fixes 🐞
 
-客户行业分布广泛，包括：
-- 互联网行业：占比25%，主要客户包括字节跳动、快手、拼多多等
-- 金融行业：占比20%，主要客户包括中国工商银行、中国建设银行、中国人寿等
-- 制造行业：占比18%，主要客户包括比亚迪、海尔、格力等
-- 政府与公共事业：占比15%，服务于20多个省市的政务云项目
-- 医疗健康：占比8%，服务于300多家医院和医疗机构
-- 其他行业：占比14%
+  * Expose stateless\_http kwarg for mcp.run() by [@jlowin](https://github.com/jlowin) in [#1018](https://github.com/jlowin/fastmcp/pull/1018)
+  * Avoid propagating logs by [@jlowin](https://github.com/jlowin) in [#1042](https://github.com/jlowin/fastmcp/pull/1042)
 
-市场表现方面，公司在国内云计算市场排名第四，市场份额约为8%，落后于阿里云（40%）、腾讯云（18%）、华为云（15%）。但增长势头良好，连续三年增长率超过30%，高于行业平均水平25%。
+  ### Docs 📚
 
-### 物联网事业部
-物联网事业部成立于2014年，年营收45亿人民币，占集团总营收的13%。该事业部专注于物联网全栈解决方案，产品矩阵包括智能传感器、通信模块、边缘计算设备、云端数据分析平台等核心组件。
+  * Clean up docs by [@jlowin](https://github.com/jlowin) in [#1028](https://github.com/jlowin/fastmcp/pull/1028)
+  * Docs: clarify server URL paths for ChatGPT integration by [@thap2331](https://github.com/thap2331) in [#1017](https://github.com/jlowin/fastmcp/pull/1017)
 
-#### 智能传感器产品线
-智能传感器产品线涵盖温湿度传感器、压力传感器、加速度传感器、气体传感器等多种类型，年出货量超过5000万颗。产品广泛应用于工业监测、环境监控、智能家居、车联网等场景。公司在传感器芯片设计和封装工艺方面具有技术优势，产品精度和稳定性达到国际先进水平。
+  ### Other Changes 🦾
 
-主要传感器产品性能指标：
+  * Split giant openapi test file into smaller files by [@jlowin](https://github.com/jlowin) in [#1034](https://github.com/jlowin/fastmcp/pull/1034)
+  * Add comprehensive OpenAPI 3.0 vs 3.1 compatibility tests by [@jlowin](https://github.com/jlowin) in [#1035](https://github.com/jlowin/fastmcp/pull/1035)
+  * Update banner and use console.log by [@jlowin](https://github.com/jlowin) in [#1041](https://github.com/jlowin/fastmcp/pull/1041)
 
-1. 温湿度传感器：温度测量范围-40℃~125℃，精度±0.2℃；湿度测量范围0~100%RH，精度±2%RH，功耗低至1.2μA
-2. 压力传感器：测量范围0~10MPa，精度±0.5%FS，响应时间<1ms，长期稳定性<0.1%FS/年
-3. 加速度传感器：测量范围±2g~±200g，分辨率16位，噪声密度<100μg/√Hz
-4. 气体传感器：支持CO、CO2、甲醛、VOC等多种气体检测，检测下限可达ppb级
-5. 光学传感器：包括光照传感器、接近传感器、指纹识别传感器等，功耗和灵敏度达到行业领先水平
+  ## New Contributors
 
-传感器芯片设计能力：公司拥有自主知识产权的MEMS传感器芯片设计技术，采用0.18μm CMOS工艺，集成度高，功耗低。芯片设计周期从规格定义到量产约为12个月，较行业平均水平缩短30%。
+  * [@cegersdoerfer](https://github.com/cegersdoerfer) made their first contribution in [#1031](https://github.com/jlowin/fastmcp/pull/1031)
+  * [@hopeful0](https://github.com/hopeful0) made their first contribution in [#1022](https://github.com/jlowin/fastmcp/pull/1022)
+  * [@thap2331](https://github.com/thap2331) made their first contribution in [#1017](https://github.com/jlowin/fastmcp/pull/1017)
 
-封装测试能力：公司在上海和深圳设有两个传感器封装测试工厂，年封装能力达到8000万颗。采用晶圆级封装（WLP）、系统级封装（SiP）等先进封装技术，产品尺寸最小可达到1.0mm×1.0mm。
+  **Full Changelog**: [v2.10.1...v2.10.2](https://github.com/jlowin/fastmcp/compare/v2.10.1...v2.10.2)
+</Update>
 
-#### 通信模块业务
-通信模块业务主要提供2G/3G/4G/5G、NB-IoT、LoRa、WiFi、蓝牙等多种制式的无线通信模块，支持全球主要运营商网络。年出货量达到2000万片，在国内市场占有率排名第三。
+<Update label="v2.10.1" description="2025-07-02">
+  ## [v2.10.1: Revert to Sender](https://github.com/jlowin/fastmcp/releases/tag/v2.10.1)
 
-主要产品系列：
+  A quick patch to revert the CLI banner that was added in v2.10.0.
 
-1. 5G模块：支持SA/NSA双模，兼容3GPP R16标准，最大下行速率2.5Gbps，上行速率1.2Gbps
-2. 4G模块：支持LTE Cat.4/Cat.6/Cat.12等多种规格，覆盖全球主要频段
-3. NB-IoT模块：支持3GPP R14标准，功耗低至5μA，传输距离可达15km
-4. LoRa模块：支持LoRaWAN协议，传输距离可达10km，适合低速率、广覆盖场景
-5. WiFi/蓝牙模块：支持WiFi 6和蓝牙5.2标准，功耗和连接稳定性达到行业领先水平
+  ## What's Changed
 
-公司与高通、联发科、华为海思等芯片厂商建立了深度合作关系，确保产品的技术先进性和供应稳定性。在全球范围内获得了CE、FCC、GCF、CCC等多项认证，产品可销往全球主要市场。
+  ### Docs 📚
 
-#### 边缘计算设备
-边缘计算设备包括工业网关、智能路由器、边缘服务器等产品，为客户提供本地数据处理和实时决策能力。产品支持多种工业协议和云端对接，具备高可靠性和易部署特点。
+  * Update changelog.mdx by [@jlowin](https://github.com/jlowin) in [#1009](https://github.com/jlowin/fastmcp/pull/1009)
+  * Revert "Add CLI banner" by [@jlowin](https://github.com/jlowin) in [#1011](https://github.com/jlowin/fastmcp/pull/1011)
 
-主要产品：
+  **Full Changelog**: [v2.10.0...v2.10.1](https://github.com/jlowin/fastmcp/compare/v2.10.0...v2.10.1)
+</Update>
 
-1. 工业网关：支持Modbus、Profinet、EtherCAT等200+工业协议转换，防护等级达到IP40，工作温度范围-40℃~70℃
-2. 智能路由器：支持5G/WiFi/以太网等多种接入方式，内置边缘计算能力，适合分布式部署
-3. 边缘服务器：采用模块化设计，支持Intel/AMD架构，可扩展GPU/FPGA加速卡，适合视频分析、AI推理等计算密集型场景
+<Update label="v2.10.0" description="2024-07-01">
+  ## [v2.10.0: Great Spec-tations](https://github.com/jlowin/fastmcp/releases/tag/v2.10.0)
 
-边缘计算软件平台：
+  FastMCP 2.10 brings full compliance with the 6/18/2025 MCP spec update, introducing elicitation support for dynamic server-client communication and output schemas for structured tool responses. Please note that due to these changes, this release also includes a breaking change to the return signature of `client.call_tool()`.
 
-1. 边缘操作系统：基于Linux内核优化的实时操作系统，确定性时延<10ms
-2. 边缘编排平台：支持容器化应用部署和管理，兼容Kubernetes生态
-3. 数据预处理引擎：支持数据过滤、聚合、转换等预处理操作，减少云端数据传输量
-4. 模型推理引擎：支持TensorFlow、PyTorch等主流框架的模型部署，支持模型量化、剪枝等优化
+  ### Elicitation Support
 
-#### 云端数据分析平台
-云端数据分析平台提供设备管理、数据采集、实时分析、可视化展示等功能，帮助客户实现物联网设备的统一管理和数据价值挖掘。平台日处理数据量超过100TB，支持千万级设备并发连接。
+  Elicitation allows MCP servers to request additional information from clients during tool execution, enabling more interactive and dynamic server behavior. This opens up new possibilities for tools that need user input or confirmation during execution.
 
-平台核心功能：
+  ### Output Schemas
 
-1. 设备管理：支持设备注册、认证、配置、升级、监控等全生命周期管理
-2. 数据采集：支持MQTT、CoAP、HTTP等多种协议接入，数据采集频率可达毫秒级
-3. 实时分析：基于流处理引擎实现数据实时分析，延迟低至秒级
-4. 规则引擎：支持可视化规则配置，实现数据告警、自动控制等功能
-5. 数据存储：支持时序数据库、关系型数据库、NoSQL数据库等多种存储方式
-6. 可视化展示：提供丰富的图表组件，支持自定义仪表盘和报表
+  Tools can now define structured output schemas, ensuring that responses conform to expected formats and making tool integration more predictable and type-safe.
 
-平台开放能力：
+  ## What's Changed
 
-1. API接口：提供RESTful API、WebSocket API等多种接口形式，方便第三方系统集成
-2. 设备接入SDK：提供C/C++、Java、Python等多种语言的SDK，简化设备接入难度
-3. 应用开发平台：提供低代码应用开发工具，支持快速构建行业应用
-4. 合作伙伴生态：开放平台能力给合作伙伴，共同开发行业解决方案
+  ### New Features 🎉
 
-#### 应用领域与案例
-应用领域主要集中在智慧城市、工业4.0、智能家居、农业科技四大方向。
+  * MCP 6/18/25: Add output schema to tools by [@jlowin](https://github.com/jlowin) in [#901](https://github.com/jlowin/fastmcp/pull/901)
+  * MCP 6/18/25: Elicitation support by [@jlowin](https://github.com/jlowin) in [#889](https://github.com/jlowin/fastmcp/pull/889)
 
-智慧城市项目包括：
+  ### Enhancements 🔧
 
-1. 智慧路灯：已在全国50个城市部署超过10万盏智慧路灯，实现远程控制、故障预警、环境监测等功能，节能率达到40%
-2. 智慧停车：覆盖全国30个城市的停车场，提供车位预约、无感支付、车位引导等功能，车位利用率提升30%
-3. 环境监测：在全国100个城市部署空气质量监测站，实时监测PM2.5、PM10、NO2等6项指标
+  * Update types + tests for SDK changes by [@jlowin](https://github.com/jlowin) in [#888](https://github.com/jlowin/fastmcp/pull/888)
+  * MCP 6/18/25: Update auth primitives by [@jlowin](https://github.com/jlowin) in [#966](https://github.com/jlowin/fastmcp/pull/966)
+  * Add OpenAPI extensions support to HTTPRoute by [@maddymanu](https://github.com/maddymanu) in [#977](https://github.com/jlowin/fastmcp/pull/977)
+  * Add title field support to FastMCP components by [@jlowin](https://github.com/jlowin) in [#982](https://github.com/jlowin/fastmcp/pull/982)
+  * Support implicit Elicitation acceptance by [@jlowin](https://github.com/jlowin) in [#983](https://github.com/jlowin/fastmcp/pull/983)
+  * Support 'no response' elicitation requests by [@jlowin](https://github.com/jlowin) in [#992](https://github.com/jlowin/fastmcp/pull/992)
+  * Add Support for Configurable Algorithms by [@sstene1](https://github.com/sstene1) in [#997](https://github.com/jlowin/fastmcp/pull/997)
 
-工业4.0解决方案：
+  ### Fixes 🐞
 
-1. 设备状态监测：为三一重工、徐工机械等企业提供设备预测性维护解决方案，故障预警准确率达到92%，设备 downtime 减少25%
-2. 生产过程优化：为海尔、美的等制造企业提供生产参数优化方案，生产效率提升15%，产品不良率降低20%
-3. 能源管理系统：为钢铁、化工等高耗能企业提供能源监控和优化方案，能耗降低10-15%
+  * Improve stdio error handling to raise connection failures immediately by [@jlowin](https://github.com/jlowin) in [#984](https://github.com/jlowin/fastmcp/pull/984)
+  * Fix type hints for FunctionResource:fn by [@CfirTsabari](https://github.com/CfirTsabari) in [#986](https://github.com/jlowin/fastmcp/pull/986)
+  * Update link to OpenAI MCP example by [@mossbanay](https://github.com/mossbanay) in [#985](https://github.com/jlowin/fastmcp/pull/985)
+  * Fix output schema generation edge case by [@jlowin](https://github.com/jlowin) in [#995](https://github.com/jlowin/fastmcp/pull/995)
+  * Refactor array parameter formatting to reduce code duplication by [@jlowin](https://github.com/jlowin) in [#1007](https://github.com/jlowin/fastmcp/pull/1007)
+  * Fix OpenAPI array parameter explode handling by [@jlowin](https://github.com/jlowin) in [#1008](https://github.com/jlowin/fastmcp/pull/1008)
 
-智能家居产品：
+  ### Breaking Changes 🛫
 
-与小米、华为等生态伙伴合作，提供智能开关、插座、传感器等产品，年销售额达到8亿元。产品支持多种语音助手，互联互通性良好。
+  * MCP 6/18/25: Upgrade to mcp 1.10 by [@jlowin](https://github.com/jlowin) in [#887](https://github.com/jlowin/fastmcp/pull/887)
 
-农业科技解决方案：
+  ### Docs 📚
 
-覆盖大田种植、设施农业、畜牧养殖等场景，服务农户超过10万户。通过土壤监测、气象监测、作物长势监测等技术，帮助农户平均增产15-20%，农药使用量减少25%。
+  * Update middleware imports and documentation by [@jlowin](https://github.com/jlowin) in [#999](https://github.com/jlowin/fastmcp/pull/999)
+  * Update OpenAI docs by [@jlowin](https://github.com/jlowin) in [#1001](https://github.com/jlowin/fastmcp/pull/1001)
+  * Add CLI banner by [@jlowin](https://github.com/jlowin) in [#1005](https://github.com/jlowin/fastmcp/pull/1005)
 
-### 新能源汽车事业部
-新能源汽车事业部成立于2018年，是公司战略布局的新兴业务单元，年营收60亿人民币，占集团总营收的18%，近三年复合增长率达到65%。该事业部专注于新能源汽车关键技术研发和产业化，主要业务方向包括智能电动汽车动力系统、智能驾驶解决方案、车联网服务平台等。
+  ### Examples & Contrib 💡
 
-#### 业务布局
-事业部下设三个核心业务线：
+  * Component Manager by [@gorocode](https://github.com/gorocode) in [#976](https://github.com/jlowin/fastmcp/pull/976)
 
-1. 动力系统业务线：专注于动力电池、电驱动系统、电控系统等核心部件研发生产
-2. 智能驾驶业务线：开发自动驾驶系统、智能座舱、车联网等智能化技术
-3. 整车集成业务线：基于自研核心技术，与整车厂商合作开发智能电动汽车
+  ### Other Changes 🦾
 
-#### 技术研发进展
-在动力电池领域，公司自主研发的高能量密度电池能量密度达到350Wh/kg，循环寿命超过2000次，安全性通过针刺、挤压、高温等严苛测试。采用CTP（Cell to Pack）技术，系统能量密度达到200Wh/kg，较传统电池包体积利用率提升15%。
+  * Minor auth improvements by [@jlowin](https://github.com/jlowin) in [#967](https://github.com/jlowin/fastmcp/pull/967)
+  * Add .ccignore for copychat by [@jlowin](https://github.com/jlowin) in [#1000](https://github.com/jlowin/fastmcp/pull/1000)
 
-在电驱动系统方面，公司开发的八合一电驱动总成集成度高，功率密度达到4kW/kg，效率达到97.5%，处于行业领先水平。支持800V高压平台，可实现超快充功能，充电10分钟续航400公里。
+  ## New Contributors
 
-智能驾驶方面，公司已实现L2+级自动驾驶功能量产，正在研发L4级自动驾驶技术。自主研发的智能驾驶域控制器采用NVIDIA Orin芯片，算力达到200TOPS，支持多传感器融合感知。
+  * [@maddymanu](https://github.com/maddymanu) made their first contribution in [#977](https://github.com/jlowin/fastmcp/pull/977)
+  * [@github0hello](https://github.com/github0hello) made their first contribution in [#979](https://github.com/jlowin/fastmcp/pull/979)
+  * [@tommitt](https://github.com/tommitt) made their first contribution in [#975](https://github.com/jlowin/fastmcp/pull/975)
+  * [@CfirTsabari](https://github.com/CfirTsabari) made their first contribution in [#986](https://github.com/jlowin/fastmcp/pull/986)
+  * [@mossbanay](https://github.com/mossbanay) made their first contribution in [#985](https://github.com/jlowin/fastmcp/pull/985)
+  * [@sstene1](https://github.com/sstene1) made their first contribution in [#997](https://github.com/jlowin/fastmcp/pull/997)
 
-车联网平台已接入超过50万辆新能源汽车，日均处理数据量超过50TB，提供远程控制、车况监测、OTA升级等功能，用户活跃度达到85%。
+  **Full Changelog**: [v2.9.2...v2.10.0](https://github.com/jlowin/fastmcp/compare/v2.9.2...v2.10.0)
+</Update>
 
-#### 市场表现与合作伙伴
-公司与国内多家主流整车厂商建立了合作关系，包括比亚迪、吉利、长城、蔚来等，动力系统产品已配套多款量产车型，市场占有率达到12%。
+<Update label="v2.9.2" description="2024-06-26">
+  ## [v2.9.2: Safety Pin](https://github.com/jlowin/fastmcp/releases/tag/v2.9.2)
 
-2023年动力电池出货量达到8GWh，电驱动系统出货量达到15万套，智能驾驶域控制器出货量达到8万套。
+  This is a patch release to pin `mcp` below 1.10, which includes changes related to the 6/18/2025 MCP spec update and could potentially break functionality for some FastMCP users.
 
-海外市场拓展取得突破，与欧洲、东南亚等地的整车厂商签订合作协议，2023年海外营收占比达到15%。
+  ## What's Changed
 
-#### 未来发展规划
-事业部计划在未来五年内投入100亿人民币用于技术研发，重点突破固态电池、高功率电驱动、L4级自动驾驶等关键技术。到2028年，力争实现年营收300亿人民币，进入国内新能源汽车核心部件供应商前三强。
+  ### Docs 📚
 
-### 智能制造事业部
-智能制造事业部成立于2015年，年营收30亿人民币，占集团总营收的9%，近三年复合增长率为25%。该事业部专注于为制造企业提供智能化转型升级解决方案，业务涵盖智能装备、工业软件、数字化工厂等领域。
+  * Fix version badge for messages by [@jlowin](https://github.com/jlowin) in [#960](https://github.com/jlowin/fastmcp/pull/960)
 
-#### 核心业务
-1. 智能装备：研发生产工业机器人、智能检测设备、自动化生产线等智能装备
-2. 工业软件：开发CAD/CAM/CAE、MES、PLM等工业软件产品
-3. 数字化工厂：提供工厂数字化转型咨询、规划、实施和运维服务
+  ### Dependencies 📦
 
-#### 技术优势
-在工业机器人领域，公司自主研发的六轴工业机器人重复定位精度达到±0.02mm，负载能力从3kg到210kg不等，已在汽车制造、3C电子等行业广泛应用。
+  * Pin mcp dependency by [@jlowin](https://github.com/jlowin) in [#962](https://github.com/jlowin/fastmcp/pull/962)
 
-工业软件方面，公司开发的InnoCAD设计软件支持2D/3D设计，兼容AutoCAD、SolidWorks等主流软件格式；InnoMES制造执行系统已在500多家制造企业应用，帮助企业提升生产效率15-20%。
+  **Full Changelog**: [v2.9.1...v2.9.2](https://github.com/jlowin/fastmcp/compare/v2.9.1...v2.9.2)
+</Update>
 
-数字化工厂解决方案采用数字孪生技术，构建物理工厂的虚拟映射，实现全流程可视化管理和优化。已为海尔、格力、美的等企业打造了标杆数字化工厂项目。
+<Update label="v2.9.1" description="2024-06-26">
+  ## [v2.9.1: Call Me Maybe](https://github.com/jlowin/fastmcp/releases/tag/v2.9.1)
 
-#### 市场地位
-公司在国内智能制造解决方案提供商中排名第八，市场份额约为3.5%。主要竞争对手包括西门子、ABB、发那科等国际巨头，以及用友、金蝶等国内企业。
+  FastMCP 2.9.1 introduces automatic MCP list change notifications, allowing servers to notify clients when tools, resources, or prompts are dynamically updated. This enables more responsive and adaptive MCP integrations.
 
-未来三年，事业部计划加大在工业互联网平台和工业AI领域的投入，力争进入国内智能制造解决方案提供商前五强。
+  ## What's Changed
 
-## 组织架构与管理体系
+  ### New Features 🎉
 
-### 集团组织架构
-创新科技集团采用矩阵式组织架构，分为横向职能部门和纵向业务单元：
+  * Add automatic MCP list change notifications and client message handling by [@jlowin](https://github.com/jlowin) in [#939](https://github.com/jlowin/fastmcp/pull/939)
 
-- 横向职能部门：包括战略规划部、人力资源部、财务部、法务部、研发管理部、市场部等
-- 纵向业务单元：包括人工智能事业部、云计算事业部、物联网事业部、新能源汽车事业部、智能制造事业部五大业务单元
-- 共享服务中心：包括IT服务中心、采购中心、供应链中心、客户服务中心等
+  ### Enhancements 🔧
 
-集团总部设有战略委员会、技术委员会、投资委员会等决策机构，负责重大战略决策和资源配置。
+  * Add debug logging to bearer token authentication by [@jlowin](https://github.com/jlowin) in [#952](https://github.com/jlowin/fastmcp/pull/952)
 
-### 管理团队
-集团管理团队平均年龄45岁，具有丰富的科技行业经验：
+  ### Fixes 🐞
 
-- 董事长：张明，55岁，清华大学计算机系博士，曾任中科院计算所研究员，公司创始人
-- CEO：李军，48岁，斯坦福大学MBA，曾任微软亚洲研究院副院长
-- CTO：王芳，45岁，麻省理工学院计算机科学博士，曾任谷歌深度学习团队负责人
-- CFO：赵强，50岁，中欧国际工商学院EMBA，注册会计师，曾任普华永道合伙人
-- 各事业部总经理：均具有15年以上相关行业经验，多数来自国内外知名科技企业
+  * Fix duplicate error logging in exception handlers by [@jlowin](https://github.com/jlowin) in [#938](https://github.com/jlowin/fastmcp/pull/938)
+  * Fix parameter location enum handling in OpenAPI parser by [@jlowin](https://github.com/jlowin) in [#953](https://github.com/jlowin/fastmcp/pull/953)
+  * Fix external schema reference handling in OpenAPI parser by [@jlowin](https://github.com/jlowin) in [#954](https://github.com/jlowin/fastmcp/pull/954)
 
-### 人力资源管理
-公司总员工数超过50,000人，其中研发人员占比40%，达到20,000人；市场销售人员占比25%，为12,500人；运营服务人员占比20%，为10,000人；管理及其他人员占比15%，为7,500人。
+  ### Docs 📚
 
-人才结构：
-- 学历结构：博士占比3%，硕士占比25%，本科占比55%，大专及以下占比17%
-- 年龄结构：30岁以下占比45%，30-40岁占比35%，40-50岁占比15%，50岁以上占比5%
-- 工作年限：平均司龄5.2年，核心技术和管理岗位平均司龄8.5年
+  * Update changelog for 2.9 release by [@jlowin](https://github.com/jlowin) in [#929](https://github.com/jlowin/fastmcp/pull/929)
+  * Regenerate API references by [@zzstoatzz](https://github.com/zzstoatzz) in [#935](https://github.com/jlowin/fastmcp/pull/935)
+  * Regenerate API references by [@zzstoatzz](https://github.com/zzstoatzz) in [#947](https://github.com/jlowin/fastmcp/pull/947)
+  * Regenerate API references by [@zzstoatzz](https://github.com/zzstoatzz) in [#949](https://github.com/jlowin/fastmcp/pull/949)
 
-薪酬福利体系：
-- 薪酬策略：市场领先型薪酬策略，核心人才薪酬位于行业90分位以上
-- 激励机制：实施股票期权、限制性股票、项目奖金等多元化激励措施
-- 福利体系：五险一金、补充商业保险、带薪年假、年度体检、员工食堂、通勤班车等
+  ### Examples & Contrib 💡
 
-人才发展体系：
-- 培训体系：建立新员工入职培训、专业技能培训、管理能力培训等全方位培训体系
-- 晋升通道：设立管理序列和专业序列双通道晋升机制
-- 导师制度：为核心人才配备导师，提供个性化发展指导
-- 轮岗机制：核心岗位实施轮岗制度，培养复合型人才
+  * Add `create_thread` tool to bsky MCP server by [@zzstoatzz](https://github.com/zzstoatzz) in [#927](https://github.com/jlowin/fastmcp/pull/927)
+  * Update `mount_example.py` to work with current fastmcp API by [@rajephon](https://github.com/rajephon) in [#957](https://github.com/jlowin/fastmcp/pull/957)
 
-### 研发管理体系
-公司建立了完善的研发管理体系，包括：
+  ## New Contributors
 
-1. 研发项目管理：采用IPD (Integrated Product Development) 集成产品开发流程，实现从概念到上市的全流程管理
-2. 技术创新管理：建立技术预研、产品开发、技术转化三级研发体系
-3. 知识产权管理：设立知识产权部，负责专利布局、商标注册、著作权保护等工作
-4. 研发绩效管理：建立以创新成果和商业价值为导向的研发绩效考核体系
+  * [@rajephon](https://github.com/rajephon) made their first contribution in [#957](https://github.com/jlowin/fastmcp/pull/957)
 
-研发投入方面，公司近三年研发费用占营收比例均保持在15%以上，2023年研发投入达到51亿人民币，占营收的15%。
+  **Full Changelog**: [v2.9.0...v2.9.1](https://github.com/jlowin/fastmcp/compare/v2.9.0...v2.9.1)
+</Update>
 
-## 财务状况与经营业绩
+<Update label="v2.9.0" description="2024-06-23">
+  ## [v2.9.0: Stuck in the Middleware With You](https://github.com/jlowin/fastmcp/releases/tag/v2.9.0)
 
-### 财务表现
-2023年公司财务表现：
-- 总营收：340亿人民币，同比增长28%
-- 毛利率：42%，同比下降2个百分点
-- 净利润：45.9亿人民币，同比增长15%，净利率13.5%
-- 经营活动现金流：58.6亿人民币，同比增长22%
-- 研发投入：51亿人民币，占营收15%
-- 资产负债率：45%，处于合理水平
+  FastMCP 2.9 introduces two important features that push beyond the basic MCP protocol: MCP Middleware and server-side type conversion.
 
-各事业部营收贡献：
-- 人工智能事业部：120亿人民币，占比35%
-- 云计算事业部：85亿人民币，占比25%
-- 物联网事业部：45亿人民币，占比13%
-- 新能源汽车事业部：60亿人民币，占比18%
-- 智能制造事业部：30亿人民币，占比9%
+  ### MCP Middleware
 
-### 财务预测
-根据公司战略规划，预计未来三年财务表现如下：
-- 2024年：营收425亿人民币，同比增长25%；净利润57.4亿人民币，同比增长25%
-- 2025年：营收531亿人民币，同比增长25%；净利润71.7亿人民币，同比增长25%
-- 2026年：营收664亿人民币，同比增长25%；净利润89.7亿人民币，同比增长25%
+  MCP middleware lets you intercept and modify requests and responses at the protocol level, giving you powerful capabilities for logging, authentication, validation, and more. This is particularly useful for building production-ready MCP servers that need sophisticated request handling.
 
-### 投融资规划
-公司计划通过以下方式支持战略发展：
-1. 股权融资：计划在2025年启动IPO，募集资金100亿人民币用于技术研发和市场拓展
-2. 债权融资：计划发行50亿人民币公司债券，用于智能制造基地建设
-3. 产业投资：设立100亿人民币产业基金，投资上下游优质企业，完善产业生态
+  ### Server-side Type Conversion
 
-## 风险分析与应对策略
+  This release also introduces server-side type conversion for prompt arguments, ensuring that data is properly formatted before being passed to your functions. This reduces the burden on individual tools and prompts to handle type validation and conversion.
 
-### 主要风险因素
-1. 技术风险：技术迭代速度快，研发投入可能无法形成持续竞争力
-2. 市场风险：市场竞争加剧，价格战导致毛利率下降
-3. 人才风险：核心人才流失，影响技术创新和业务发展
-4. 政策风险：监管政策变化，特别是数据安全、隐私保护等方面的政策调整
-5. 供应链风险：关键零部件供应不稳定，影响产品交付
-6. 财务风险：大规模投资可能导致现金流压力增大
+  ## What's Changed
 
-### 风险应对措施
-1. 技术风险应对：
-- 建立多元化技术布局，降低单一技术路线风险
-- 加强产学研合作，提前布局前沿技术
-- 建立技术预警机制，及时跟踪技术发展趋势
+  ### New Features 🎉
 
-2. 市场风险应对：
-- 深化行业应用，构建差异化竞争优势
-- 加强客户关系管理，提高客户粘性
-- 拓展国际市场，分散国内市场竞争压力
+  * Add File utility for binary data by [@gorocode](https://github.com/gorocode) in [#843](https://github.com/jlowin/fastmcp/pull/843)
+  * Consolidate prefix logic into FastMCP methods by [@jlowin](https://github.com/jlowin) in [#861](https://github.com/jlowin/fastmcp/pull/861)
+  * Add MCP Middleware by [@jlowin](https://github.com/jlowin) in [#870](https://github.com/jlowin/fastmcp/pull/870)
+  * Implement server-side type conversion for prompt arguments by [@jlowin](https://github.com/jlowin) in [#908](https://github.com/jlowin/fastmcp/pull/908)
 
-3. 人才风险应对：
-- 实施有竞争力的薪酬激励计划
-- 建立完善的人才培养和发展体系
-- 营造良好的企业文化和工作环境
+  ### Enhancements 🔧
 
-4. 政策风险应对：
-- 加强政策研究，提前预判政策走向
-- 建立合规管理体系，确保业务合规运营
-- 积极参与行业标准制定，影响政策走向
+  * Fix tool description indentation issue by [@zfflxx](https://github.com/zfflxx) in [#845](https://github.com/jlowin/fastmcp/pull/845)
+  * Add version parameter to FastMCP constructor by [@mkyutani](https://github.com/mkyutani) in [#842](https://github.com/jlowin/fastmcp/pull/842)
+  * Update version to not be positional by [@jlowin](https://github.com/jlowin) in [#848](https://github.com/jlowin/fastmcp/pull/848)
+  * Add key to component by [@jlowin](https://github.com/jlowin) in [#869](https://github.com/jlowin/fastmcp/pull/869)
+  * Add session\_id property to Context for data sharing by [@jlowin](https://github.com/jlowin) in [#881](https://github.com/jlowin/fastmcp/pull/881)
+  * Fix CORS documentation example by [@jlowin](https://github.com/jlowin) in [#895](https://github.com/jlowin/fastmcp/pull/895)
 
-5. 供应链风险应对：
-- 建立多源供应体系，降低单一供应商依赖
-- 与核心供应商建立长期战略合作关系
-- 加强库存管理，建立安全库存机制
+  ### Fixes 🐞
 
-6. 财务风险应对：
-- 优化资本结构，降低财务杠杆
-- 加强现金流管理，提高资金使用效率
-- 建立财务预警机制，及时发现和应对财务风险
+  * "report\_progress missing passing related\_request\_id causes notifications not working" by [@alexsee](https://github.com/alexsee) in [#838](https://github.com/jlowin/fastmcp/pull/838)
+  * Fix JWT issuer validation to support string values per RFC 7519 by [@jlowin](https://github.com/jlowin) in [#892](https://github.com/jlowin/fastmcp/pull/892)
+  * Fix BearerAuthProvider audience type annotations by [@jlowin](https://github.com/jlowin) in [#894](https://github.com/jlowin/fastmcp/pull/894)
 
-## 战略目标与实施路径
+  ### Docs 📚
 
-### 总体战略目标
-到2028年，将创新科技集团打造成为全球领先的智能科技企业，实现以下目标：
-- 年营收突破1500亿人民币
-- 全球员工规模达到10万人
-- 研发投入占比保持在15%以上
-- 进入全球科技企业50强
-- 成为细分领域的技术领导者和市场领导者
+  * Add CLAUDE.md development guidelines by [@jlowin](https://github.com/jlowin) in [#880](https://github.com/jlowin/fastmcp/pull/880)
+  * Update context docs for session\_id property by [@jlowin](https://github.com/jlowin) in [#882](https://github.com/jlowin/fastmcp/pull/882)
+  * Add API reference by [@zzstoatzz](https://github.com/zzstoatzz) in [#893](https://github.com/jlowin/fastmcp/pull/893)
+  * Fix API ref rendering by [@zzstoatzz](https://github.com/zzstoatzz) in [#900](https://github.com/jlowin/fastmcp/pull/900)
+  * Simplify docs nav by [@jlowin](https://github.com/jlowin) in [#902](https://github.com/jlowin/fastmcp/pull/902)
+  * Add fastmcp inspect command by [@jlowin](https://github.com/jlowin) in [#904](https://github.com/jlowin/fastmcp/pull/904)
+  * Update client docs by [@jlowin](https://github.com/jlowin) in [#912](https://github.com/jlowin/fastmcp/pull/912)
+  * Update docs nav by [@jlowin](https://github.com/jlowin) in [#913](https://github.com/jlowin/fastmcp/pull/913)
+  * Update integration documentation for Claude Desktop, ChatGPT, and Claude Code by [@jlowin](https://github.com/jlowin) in [#915](https://github.com/jlowin/fastmcp/pull/915)
+  * Add http as an alias for streamable http by [@jlowin](https://github.com/jlowin) in [#917](https://github.com/jlowin/fastmcp/pull/917)
+  * Clean up parameter documentation by [@jlowin](https://github.com/jlowin) in [#918](https://github.com/jlowin/fastmcp/pull/918)
+  * Add middleware examples for timing, logging, rate limiting, and error handling by [@jlowin](https://github.com/jlowin) in [#919](https://github.com/jlowin/fastmcp/pull/919)
+  * ControlFlow → FastMCP rename by [@jlowin](https://github.com/jlowin) in [#922](https://github.com/jlowin/fastmcp/pull/922)
 
-### 业务战略目标
-1. 人工智能事业部：成为全球前三的AI解决方案提供商，年营收突破500亿人民币
-2. 云计算事业部：进入国内云计算市场前三，年营收突破400亿人民币
-3. 物联网事业部：成为全球领先的物联网平台服务商，年营收突破250亿人民币
-4. 新能源汽车事业部：进入国内新能源汽车核心部件供应商前三强，年营收突破300亿人民币
-5. 智能制造事业部：成为国内领先的智能制造解决方案提供商，年营收突破150亿人民币
+  ### Examples & Contrib 💡
 
-### 实施路径
-1. 技术创新驱动：加大研发投入，突破核心技术，构建技术壁垒
-2. 市场拓展：深化国内市场，拓展国际市场，扩大市场份额
-3. 生态建设：构建开放共赢的产业生态，加强与上下游企业合作
-4. 人才战略：吸引和培养顶尖人才，打造高素质专业团队
-5. 资本运作：通过IPO、并购等资本手段加速发展
+  * Add contrib.mcp\_mixin support for annotations by [@rsp2k](https://github.com/rsp2k) in [#860](https://github.com/jlowin/fastmcp/pull/860)
+  * Add ATProto (Bluesky) MCP Server Example by [@zzstoatzz](https://github.com/zzstoatzz) in [#916](https://github.com/jlowin/fastmcp/pull/916)
+  * Fix path in atproto example pyproject by [@zzstoatzz](https://github.com/zzstoatzz) in [#920](https://github.com/jlowin/fastmcp/pull/920)
+  * Remove uv source in example by [@zzstoatzz](https://github.com/zzstoatzz) in [#921](https://github.com/jlowin/fastmcp/pull/921)
 
-### 阶段实施计划
-1. 第一阶段（2024-2025年）：夯实基础
-- 完成核心技术布局
-- 建立完善的产品体系
-- 拓展重点行业客户
+  ## New Contributors
 
-2. 第二阶段（2026-2027年）：快速发展
-- 加大市场拓展力度
-- 加速国际化布局
-- 推动规模化盈利
+  * [@alexsee](https://github.com/alexsee) made their first contribution in [#838](https://github.com/jlowin/fastmcp/pull/838)
+  * [@zfflxx](https://github.com/zfflxx) made their first contribution in [#845](https://github.com/jlowin/fastmcp/pull/845)
+  * [@mkyutani](https://github.com/mkyutani) made their first contribution in [#842](https://github.com/jlowin/fastmcp/pull/842)
+  * [@gorocode](https://github.com/gorocode) made their first contribution in [#843](https://github.com/jlowin/fastmcp/pull/843)
+  * [@rsp2k](https://github.com/rsp2k) made their first contribution in [#860](https://github.com/jlowin/fastmcp/pull/860)
+  * [@owtaylor](https://github.com/owtaylor) made their first contribution in [#897](https://github.com/jlowin/fastmcp/pull/897)
+  * [@Jason-CKY](https://github.com/Jason-CKY) made their first contribution in [#906](https://github.com/jlowin/fastmcp/pull/906)
 
-3. 第三阶段（2028年）：行业领先
-- 成为细分领域领导者
-- 构建完整产业生态
-- 实现可持续发展
+  **Full Changelog**: [v2.8.1...v2.9.0](https://github.com/jlowin/fastmcp/compare/v2.8.1...v2.9.0)
+</Update>
 
-## 结论与建议
+<Update label="v2.8.1" description="2024-06-15">
+  ## [v2.8.1: Sound Judgement](https://github.com/jlowin/fastmcp/releases/tag/v2.8.1)
 
-创新科技集团作为一家快速发展的科技企业，在人工智能、云计算、物联网等新兴技术领域具有较强的竞争力和发展潜力。面对全球科技行业的机遇与挑战，公司应坚持以技术创新为核心驱动力，深化行业应用，构建差异化竞争优势，加强人才队伍建设，完善风险管控体系，实现可持续发展。
+  2.8.1 introduces audio support, as well as minor fixes and updates for deprecated features.
 
-建议公司在未来战略实施过程中重点关注以下几个方面：
-1. 加强基础研究投入，构建核心技术壁垒
-2. 深化行业场景应用，提升解决方案竞争力
-3. 加速国际化布局，分散市场风险
-4. 构建开放生态系统，实现协同发展
-5. 加强数据安全和合规管理，应对监管政策变化
+  ### Audio Support
 
-通过实施上述战略举措，创新科技集团有望在未来5-10年内实现跨越式发展，成为全球领先的智能科技企业。"""
+  This release adds support for audio content in MCP tools and resources, expanding FastMCP's multimedia capabilities beyond text and images.
+
+  ## What's Changed
+
+  ### New Features 🎉
+
+  * Add audio support by [@jlowin](https://github.com/jlowin) in [#833](https://github.com/jlowin/fastmcp/pull/833)
+
+  ### Enhancements 🔧
+
+  * Add flag for disabling deprecation warnings by [@jlowin](https://github.com/jlowin) in [#802](https://github.com/jlowin/fastmcp/pull/802)
+  * Add examples to Tool Arg Param transformation by [@strawgate](https://github.com/strawgate) in [#806](https://github.com/jlowin/fastmcp/pull/806)
+
+  ### Fixes 🐞
+
+  * Restore .settings access as deprecated by [@jlowin](https://github.com/jlowin) in [#800](https://github.com/jlowin/fastmcp/pull/800)
+  * Ensure handling of false http kwargs correctly; removed unused kwarg by [@jlowin](https://github.com/jlowin) in [#804](https://github.com/jlowin/fastmcp/pull/804)
+  * Bump mcp 1.9.4 by [@jlowin](https://github.com/jlowin) in [#835](https://github.com/jlowin/fastmcp/pull/835)
+
+  ### Docs 📚
+
+  * Update changelog for 2.8.0 by [@jlowin](https://github.com/jlowin) in [#794](https://github.com/jlowin/fastmcp/pull/794)
+  * Update welcome docs by [@jlowin](https://github.com/jlowin) in [#808](https://github.com/jlowin/fastmcp/pull/808)
+  * Update headers in docs by [@jlowin](https://github.com/jlowin) in [#809](https://github.com/jlowin/fastmcp/pull/809)
+  * Add MCP group to tutorials by [@jlowin](https://github.com/jlowin) in [#810](https://github.com/jlowin/fastmcp/pull/810)
+  * Add Community section to documentation by [@zzstoatzz](https://github.com/zzstoatzz) in [#819](https://github.com/jlowin/fastmcp/pull/819)
+  * Add 2.8 update by [@jlowin](https://github.com/jlowin) in [#821](https://github.com/jlowin/fastmcp/pull/821)
+  * Embed YouTube videos in community showcase by [@zzstoatzz](https://github.com/zzstoatzz) in [#820](https://github.com/jlowin/fastmcp/pull/820)
+
+  ### Other Changes 🦾
+
+  * Ensure http args are passed through by [@jlowin](https://github.com/jlowin) in [#803](https://github.com/jlowin/fastmcp/pull/803)
+  * Fix install link in readme by [@jlowin](https://github.com/jlowin) in [#836](https://github.com/jlowin/fastmcp/pull/836)
+
+  **Full Changelog**: [v2.8.0...v2.8.1](https://github.com/jlowin/fastmcp/compare/v2.8.0...v2.8.1)
+</Update>
+
+<Update label="v2.8.0" description="2024-06-10">
+  ## [v2.8.0: Transform and Roll Out](https://github.com/jlowin/fastmcp/releases/tag/v2.8.0)
+
+  FastMCP 2.8.0 introduces powerful new ways to customize and control your MCP servers!
+
+  ### Tool Transformation
+
+  The highlight of this release is first-class [**Tool Transformation**](/patterns/tool-transformation), a new feature that lets you create enhanced variations of existing tools. You can now easily rename arguments, hide parameters, modify descriptions, and even wrap tools with custom validation or post-processing logic—all without rewriting the original code. This makes it easier than ever to adapt generic tools for specific LLM use cases or to simplify complex APIs. Huge thanks to [@strawgate](https://github.com/strawgate) for partnering on this, starting with [#591](https://github.com/jlowin/fastmcp/discussions/591) and [#599](https://github.com/jlowin/fastmcp/pull/599) and continuing offline.
+
+  ### Component Control
+
+  This release also gives you more granular control over which components are exposed to clients. With new [**tag-based filtering**](/servers/server#tag-based-filtering), you can selectively enable or disable tools, resources, and prompts based on tags, perfect for managing different environments or user permissions. Complementing this, every component now supports being [programmatically enabled or disabled](/servers/tools#disabling-tools), offering dynamic control over your server's capabilities.
+
+  ### Tools-by-Default
+
+  Finally, to improve compatibility with a wider range of LLM clients, this release changes the default behavior for OpenAPI integration: all API endpoints are now converted to `Tools` by default. This is a **breaking change** but pragmatically necessitated by the fact that the majority of MCP clients available today are, sadly, only compatible with MCP tools. Therefore, this change significantly simplifies the out-of-the-box experience and ensures your entire API is immediately accessible to any tool-using agent.
+
+  ## What's Changed
+
+  ### New Features 🎉
+
+  * First-class tool transformation by [@jlowin](https://github.com/jlowin) in [#745](https://github.com/jlowin/fastmcp/pull/745)
+  * Support enable/disable for all FastMCP components (tools, prompts, resources, templates) by [@jlowin](https://github.com/jlowin) in [#781](https://github.com/jlowin/fastmcp/pull/781)
+  * Add support for tag-based component filtering by [@jlowin](https://github.com/jlowin) in [#748](https://github.com/jlowin/fastmcp/pull/748)
+  * Allow tag assignments for OpenAPI by [@jlowin](https://github.com/jlowin) in [#791](https://github.com/jlowin/fastmcp/pull/791)
+
+  ### Enhancements 🔧
+
+  * Create common base class for components by [@jlowin](https://github.com/jlowin) in [#776](https://github.com/jlowin/fastmcp/pull/776)
+  * Move components to own file; add resource by [@jlowin](https://github.com/jlowin) in [#777](https://github.com/jlowin/fastmcp/pull/777)
+  * Update FastMCP component with **eq** and **repr** by [@jlowin](https://github.com/jlowin) in [#779](https://github.com/jlowin/fastmcp/pull/779)
+  * Remove open-ended and server-specific settings by [@jlowin](https://github.com/jlowin) in [#750](https://github.com/jlowin/fastmcp/pull/750)
+
+  ### Fixes 🐞
+
+  * Ensure client is only initialized once by [@jlowin](https://github.com/jlowin) in [#758](https://github.com/jlowin/fastmcp/pull/758)
+  * Fix field validator for resource by [@jlowin](https://github.com/jlowin) in [#778](https://github.com/jlowin/fastmcp/pull/778)
+  * Ensure proxies can overwrite remote tools without falling back to the remote by [@jlowin](https://github.com/jlowin) in [#782](https://github.com/jlowin/fastmcp/pull/782)
+
+  ### Breaking Changes 🛫
+
+  * Treat all openapi routes as tools by [@jlowin](https://github.com/jlowin) in [#788](https://github.com/jlowin/fastmcp/pull/788)
+  * Fix issue with global OpenAPI tags by [@jlowin](https://github.com/jlowin) in [#792](https://github.com/jlowin/fastmcp/pull/792)
+
+  ### Docs 📚
+
+  * Minor docs updates by [@jlowin](https://github.com/jlowin) in [#755](https://github.com/jlowin/fastmcp/pull/755)
+  * Add 2.7 update by [@jlowin](https://github.com/jlowin) in [#756](https://github.com/jlowin/fastmcp/pull/756)
+  * Reduce 2.7 image size by [@jlowin](https://github.com/jlowin) in [#757](https://github.com/jlowin/fastmcp/pull/757)
+  * Update updates.mdx by [@jlowin](https://github.com/jlowin) in [#765](https://github.com/jlowin/fastmcp/pull/765)
+  * Hide docs sidebar scrollbar by default by [@jlowin](https://github.com/jlowin) in [#766](https://github.com/jlowin/fastmcp/pull/766)
+  * Add "stop vibe testing" to tutorials by [@jlowin](https://github.com/jlowin) in [#767](https://github.com/jlowin/fastmcp/pull/767)
+  * Add docs links by [@jlowin](https://github.com/jlowin) in [#768](https://github.com/jlowin/fastmcp/pull/768)
+  * Fix: updated variable name under Gemini remote client by [@yrangana](https://github.com/yrangana) in [#769](https://github.com/jlowin/fastmcp/pull/769)
+  * Revert "Hide docs sidebar scrollbar by default" by [@jlowin](https://github.com/jlowin) in [#770](https://github.com/jlowin/fastmcp/pull/770)
+  * Add updates by [@jlowin](https://github.com/jlowin) in [#773](https://github.com/jlowin/fastmcp/pull/773)
+  * Add tutorials by [@jlowin](https://github.com/jlowin) in [#783](https://github.com/jlowin/fastmcp/pull/783)
+  * Update LLM-friendly docs by [@jlowin](https://github.com/jlowin) in [#784](https://github.com/jlowin/fastmcp/pull/784)
+  * Update oauth.mdx by [@JeremyCraigMartinez](https://github.com/JeremyCraigMartinez) in [#787](https://github.com/jlowin/fastmcp/pull/787)
+  * Add changelog by [@jlowin](https://github.com/jlowin) in [#789](https://github.com/jlowin/fastmcp/pull/789)
+  * Add tutorials by [@jlowin](https://github.com/jlowin) in [#790](https://github.com/jlowin/fastmcp/pull/790)
+  * Add docs for tag-based filtering by [@jlowin](https://github.com/jlowin) in [#793](https://github.com/jlowin/fastmcp/pull/793)
+
+  ### Other Changes 🦾
+
+  * Create dependabot.yml by [@jlowin](https://github.com/jlowin) in [#759](https://github.com/jlowin/fastmcp/pull/759)
+  * Bump astral-sh/setup-uv from 3 to 6 by [@dependabot](https://github.com/dependabot) in [#760](https://github.com/jlowin/fastmcp/pull/760)
+  * Add dependencies section to release by [@jlowin](https://github.com/jlowin) in [#761](https://github.com/jlowin/fastmcp/pull/761)
+  * Remove extra imports for MCPConfig by [@Maanas-Verma](https://github.com/Maanas-Verma) in [#763](https://github.com/jlowin/fastmcp/pull/763)
+  * Split out enhancements in release notes by [@jlowin](https://github.com/jlowin) in [#764](https://github.com/jlowin/fastmcp/pull/764)
+
+  ## New Contributors
+
+  * [@dependabot](https://github.com/dependabot) made their first contribution in [#760](https://github.com/jlowin/fastmcp/pull/760)
+  * [@Maanas-Verma](https://github.com/Maanas-Verma) made their first contribution in [#763](https://github.com/jlowin/fastmcp/pull/763)
+  * [@JeremyCraigMartinez](https://github.com/JeremyCraigMartinez) made their first contribution in [#787](https://github.com/jlowin/fastmcp/pull/787)
+
+  **Full Changelog**: [v2.7.1...v2.8.0](https://github.com/jlowin/fastmcp/compare/v2.7.1...v2.8.0)
+</Update>
+
+<Update label="v2.7.1" description="2024-06-08">
+  ## [v2.7.1: The Bearer Necessities](https://github.com/jlowin/fastmcp/releases/tag/v2.7.1)
+
+  This release primarily contains a fix for parsing string tokens that are provided to FastMCP clients.
+
+  ### New Features 🎉
+
+  * Respect cache setting, set default to 1 second by [@jlowin](https://github.com/jlowin) in [#747](https://github.com/jlowin/fastmcp/pull/747)
+
+  ### Fixes 🐞
+
+  * Ensure event store is properly typed by [@jlowin](https://github.com/jlowin) in [#753](https://github.com/jlowin/fastmcp/pull/753)
+  * Fix passing token string to client auth & add auth to MCPConfig clients by [@jlowin](https://github.com/jlowin) in [#754](https://github.com/jlowin/fastmcp/pull/754)
+
+  ### Docs 📚
+
+  * Docs : fix client to mcp\_client in Gemini example by [@yrangana](https://github.com/yrangana) in [#734](https://github.com/jlowin/fastmcp/pull/734)
+  * update add tool docstring by [@strawgate](https://github.com/strawgate) in [#739](https://github.com/jlowin/fastmcp/pull/739)
+  * Fix contrib link by [@richardkmichael](https://github.com/richardkmichael) in [#749](https://github.com/jlowin/fastmcp/pull/749)
+
+  ### Other Changes 🦾
+
+  * Switch Pydantic defaults to kwargs by [@strawgate](https://github.com/strawgate) in [#731](https://github.com/jlowin/fastmcp/pull/731)
+  * Fix Typo in CLI module by [@wfclark5](https://github.com/wfclark5) in [#737](https://github.com/jlowin/fastmcp/pull/737)
+  * chore: fix prompt docstring by [@danb27](https://github.com/danb27) in [#752](https://github.com/jlowin/fastmcp/pull/752)
+  * Add accept to excluded headers by [@jlowin](https://github.com/jlowin) in [#751](https://github.com/jlowin/fastmcp/pull/751)
+
+  ### New Contributors
+
+  * [@wfclark5](https://github.com/wfclark5) made their first contribution in [#737](https://github.com/jlowin/fastmcp/pull/737)
+  * [@richardkmichael](https://github.com/richardkmichael) made their first contribution in [#749](https://github.com/jlowin/fastmcp/pull/749)
+  * [@danb27](https://github.com/danb27) made their first contribution in [#752](https://github.com/jlowin/fastmcp/pull/752)
+
+  **Full Changelog**: [v2.7.0...v2.7.1](https://github.com/jlowin/fastmcp/compare/v2.7.0...v2.7.1)
+</Update>
+
+<Update label="v2.7.0" description="2024-06-05">
+  ## [v2.7.0: Pare Programming](https://github.com/jlowin/fastmcp/releases/tag/v2.7.0)
+
+  This is primarily a housekeeping release to remove or deprecate cruft that's accumulated since v1. Primarily, this release refactors FastMCP's internals in preparation for features planned in the next few major releases. However please note that as a result, this release has some minor breaking changes (which is why it's 2.7, not 2.6.2, in accordance with repo guidelines) though not to the core user-facing APIs.
+
+  ### Breaking Changes 🛫
+
+  * decorators return the objects they create, not the decorated function
+  * websockets is an optional dependency
+  * methods on the server for automatically converting functions into tools/resources/prompts have been deprecated in favor of using the decorators directly
+
+  ### New Features 🎉
+
+  * allow passing flags to servers by [@zzstoatzz](https://github.com/zzstoatzz) in [#690](https://github.com/jlowin/fastmcp/pull/690)
+  * replace $ref pointing to `#/components/schemas/` with `#/$defs/\` by [@phateffect](https://github.com/phateffect) in [#697](https://github.com/jlowin/fastmcp/pull/697)
+  * Split Tool into Tool and FunctionTool by [@jlowin](https://github.com/jlowin) in [#700](https://github.com/jlowin/fastmcp/pull/700)
+  * Use strict basemodel for Prompt; relax from\_function deprecation by [@jlowin](https://github.com/jlowin) in [#701](https://github.com/jlowin/fastmcp/pull/701)
+  * Formalize resource/functionresource replationship by [@jlowin](https://github.com/jlowin) in [#702](https://github.com/jlowin/fastmcp/pull/702)
+  * Formalize template/functiontemplate split by [@jlowin](https://github.com/jlowin) in [#703](https://github.com/jlowin/fastmcp/pull/703)
+  * Support flexible @tool decorator call patterns by [@jlowin](https://github.com/jlowin) in [#706](https://github.com/jlowin/fastmcp/pull/706)
+  * Ensure deprecation warnings have stacklevel=2 by [@jlowin](https://github.com/jlowin) in [#710](https://github.com/jlowin/fastmcp/pull/710)
+  * Allow naked prompt decorator by [@jlowin](https://github.com/jlowin) in [#711](https://github.com/jlowin/fastmcp/pull/711)
+
+  ### Fixes 🐞
+
+  * Updates / Fixes for Tool Content Conversion by [@strawgate](https://github.com/strawgate) in [#642](https://github.com/jlowin/fastmcp/pull/642)
+  * Fix pr labeler permissions by [@jlowin](https://github.com/jlowin) in [#708](https://github.com/jlowin/fastmcp/pull/708)
+  * remove -n auto by [@jlowin](https://github.com/jlowin) in [#709](https://github.com/jlowin/fastmcp/pull/709)
+  * Fix links in README.md by [@alainivars](https://github.com/alainivars) in [#723](https://github.com/jlowin/fastmcp/pull/723)
+
+  Happily, this release DOES permit the use of "naked" decorators to align with Pythonic practice:
+
+  ```python
+  @mcp.tool
+  def my_tool():
+      ...
+  ```
+
+  **Full Changelog**: [v2.6.2...v2.7.0](https://github.com/jlowin/fastmcp/compare/v2.6.2...v2.7.0)
+</Update>
+
+<Update label="v2.6.1" description="2024-06-03">
+  ## [v2.6.1: Blast Auth (second ignition)](https://github.com/jlowin/fastmcp/releases/tag/v2.6.1)
+
+  This is a patch release to restore py.typed in #686.
+
+  ### Docs 📚
+
+  * Update readme by [@jlowin](https://github.com/jlowin) in [#679](https://github.com/jlowin/fastmcp/pull/679)
+  * Add gemini tutorial by [@jlowin](https://github.com/jlowin) in [#680](https://github.com/jlowin/fastmcp/pull/680)
+  * Fix : fix path error to CLI Documentation by [@yrangana](https://github.com/yrangana) in [#684](https://github.com/jlowin/fastmcp/pull/684)
+  * Update auth docs by [@jlowin](https://github.com/jlowin) in [#687](https://github.com/jlowin/fastmcp/pull/687)
+
+  ### Other Changes 🦾
+
+  * Remove deprecation notice by [@jlowin](https://github.com/jlowin) in [#677](https://github.com/jlowin/fastmcp/pull/677)
+  * Delete server.py by [@jlowin](https://github.com/jlowin) in [#681](https://github.com/jlowin/fastmcp/pull/681)
+  * Restore py.typed by [@jlowin](https://github.com/jlowin) in [#686](https://github.com/jlowin/fastmcp/pull/686)
+
+  ### New Contributors
+
+  * [@yrangana](https://github.com/yrangana) made their first contribution in [#684](https://github.com/jlowin/fastmcp/pull/684)
+
+  **Full Changelog**: [v2.6.0...v2.6.1](https://github.com/jlowin/fastmcp/compare/v2.6.0...v2.6.1)
+</Update>
+
+<Update label="v2.6.0" description="2024-06-02">
+  ## [v2.6.0: Blast Auth](https://github.com/jlowin/fastmcp/releases/tag/v2.6.0)
+
+  ### New Features 🎉
+
+  * Introduce MCP client oauth flow by [@jlowin](https://github.com/jlowin) in [#478](https://github.com/jlowin/fastmcp/pull/478)
+  * Support providing tools at init by [@jlowin](https://github.com/jlowin) in [#647](https://github.com/jlowin/fastmcp/pull/647)
+  * Simplify code for running servers in processes during tests by [@jlowin](https://github.com/jlowin) in [#649](https://github.com/jlowin/fastmcp/pull/649)
+  * Add basic bearer auth for server and client by [@jlowin](https://github.com/jlowin) in [#650](https://github.com/jlowin/fastmcp/pull/650)
+  * Support configuring bearer auth from env vars by [@jlowin](https://github.com/jlowin) in [#652](https://github.com/jlowin/fastmcp/pull/652)
+  * feat(tool): add support for excluding arguments from tool definition by [@deepak-stratforge](https://github.com/deepak-stratforge) in [#626](https://github.com/jlowin/fastmcp/pull/626)
+  * Add docs for server + client auth by [@jlowin](https://github.com/jlowin) in [#655](https://github.com/jlowin/fastmcp/pull/655)
+
+  ### Fixes 🐞
+
+  * fix: Support concurrency in FastMcpProxy (and Client) by [@Sillocan](https://github.com/Sillocan) in [#635](https://github.com/jlowin/fastmcp/pull/635)
+  * Ensure Client.close() cleans up client context appropriately by [@jlowin](https://github.com/jlowin) in [#643](https://github.com/jlowin/fastmcp/pull/643)
+  * Update client.mdx: ClientError namespace by [@mjkaye](https://github.com/mjkaye) in [#657](https://github.com/jlowin/fastmcp/pull/657)
+
+  ### Docs 📚
+
+  * Make FastMCPTransport support simulated Streamable HTTP Transport (didn't work) by [@jlowin](https://github.com/jlowin) in [#645](https://github.com/jlowin/fastmcp/pull/645)
+  * Document exclude\_args by [@jlowin](https://github.com/jlowin) in [#653](https://github.com/jlowin/fastmcp/pull/653)
+  * Update welcome by [@jlowin](https://github.com/jlowin) in [#673](https://github.com/jlowin/fastmcp/pull/673)
+  * Add Anthropic + Claude desktop integration guides by [@jlowin](https://github.com/jlowin) in [#674](https://github.com/jlowin/fastmcp/pull/674)
+  * Minor docs design updates by [@jlowin](https://github.com/jlowin) in [#676](https://github.com/jlowin/fastmcp/pull/676)
+
+  ### Other Changes 🦾
+
+  * Update test typing by [@jlowin](https://github.com/jlowin) in [#646](https://github.com/jlowin/fastmcp/pull/646)
+  * Add OpenAI integration docs by [@jlowin](https://github.com/jlowin) in [#660](https://github.com/jlowin/fastmcp/pull/660)
+
+  ### New Contributors
+
+  * [@Sillocan](https://github.com/Sillocan) made their first contribution in [#635](https://github.com/jlowin/fastmcp/pull/635)
+  * [@deepak-stratforge](https://github.com/deepak-stratforge) made their first contribution in [#626](https://github.com/jlowin/fastmcp/pull/626)
+  * [@mjkaye](https://github.com/mjkaye) made their first contribution in [#657](https://github.com/jlowin/fastmcp/pull/657)
+
+  **Full Changelog**: [v2.5.2...v2.6.0](https://github.com/jlowin/fastmcp/compare/v2.5.2...v2.6.0)
+</Update>
+
+<Update label="v2.5.2" description="2024-05-29">
+  ## [v2.5.2: Stayin' Alive](https://github.com/jlowin/fastmcp/releases/tag/v2.5.2)
+
+  ### New Features 🎉
+
+  * Add graceful error handling for unreachable mounted servers by [@davenpi](https://github.com/davenpi) in [#605](https://github.com/jlowin/fastmcp/pull/605)
+  * Improve type inference from client transport by [@jlowin](https://github.com/jlowin) in [#623](https://github.com/jlowin/fastmcp/pull/623)
+  * Add keep\_alive param to reuse subprocess by [@jlowin](https://github.com/jlowin) in [#624](https://github.com/jlowin/fastmcp/pull/624)
+
+  ### Fixes 🐞
+
+  * Fix handling tools without descriptions by [@jlowin](https://github.com/jlowin) in [#610](https://github.com/jlowin/fastmcp/pull/610)
+  * Don't print env vars to console when format is wrong by [@jlowin](https://github.com/jlowin) in [#615](https://github.com/jlowin/fastmcp/pull/615)
+  * Ensure behavior-affecting headers are excluded when forwarding proxies/openapi by [@jlowin](https://github.com/jlowin) in [#620](https://github.com/jlowin/fastmcp/pull/620)
+
+  ### Docs 📚
+
+  * Add notes about uv and claude desktop by [@jlowin](https://github.com/jlowin) in [#597](https://github.com/jlowin/fastmcp/pull/597)
+
+  ### Other Changes 🦾
+
+  * add init\_timeout for mcp client by [@jfouret](https://github.com/jfouret) in [#607](https://github.com/jlowin/fastmcp/pull/607)
+  * Add init\_timeout for mcp client (incl settings) by [@jlowin](https://github.com/jlowin) in [#609](https://github.com/jlowin/fastmcp/pull/609)
+  * Support for uppercase letters at the log level by [@ksawaray](https://github.com/ksawaray) in [#625](https://github.com/jlowin/fastmcp/pull/625)
+
+  ### New Contributors
+
+  * [@jfouret](https://github.com/jfouret) made their first contribution in [#607](https://github.com/jlowin/fastmcp/pull/607)
+  * [@ksawaray](https://github.com/ksawaray) made their first contribution in [#625](https://github.com/jlowin/fastmcp/pull/625)
+
+  **Full Changelog**: [v2.5.1...v2.5.2](https://github.com/jlowin/fastmcp/compare/v2.5.1...v2.5.2)
+</Update>
+
+<Update label="v2.5.1" description="2024-05-24">
+  ## [v2.5.1: Route Awakening (Part 2)](https://github.com/jlowin/fastmcp/releases/tag/v2.5.1)
+
+  ### Fixes 🐞
+
+  * Ensure content-length is always stripped from client headers by [@jlowin](https://github.com/jlowin) in [#589](https://github.com/jlowin/fastmcp/pull/589)
+
+  ### Docs 📚
+
+  * Fix redundant section of docs by [@jlowin](https://github.com/jlowin) in [#583](https://github.com/jlowin/fastmcp/pull/583)
+
+  **Full Changelog**: [v2.5.0...v2.5.1](https://github.com/jlowin/fastmcp/compare/v2.5.0...v2.5.1)
+</Update>
+
+<Update label="v2.5.0" description="2024-05-24">
+  ## [v2.5.0: Route Awakening](https://github.com/jlowin/fastmcp/releases/tag/v2.5.0)
+
+  This release introduces completely new tools for generating and customizing MCP servers from OpenAPI specs and FastAPI apps, including popular requests like mechanisms for determining what routes map to what MCP components; renaming routes; and customizing the generated MCP components.
+
+  ### New Features 🎉
+
+  * Add FastMCP 1.0 server support for in-memory Client / Testing by [@jlowin](https://github.com/jlowin) in [#539](https://github.com/jlowin/fastmcp/pull/539)
+  * Minor addition: add transport to stdio server in mcpconfig, with default by [@jlowin](https://github.com/jlowin) in [#555](https://github.com/jlowin/fastmcp/pull/555)
+  * Raise an error if a Client is created with no servers in config by [@jlowin](https://github.com/jlowin) in [#554](https://github.com/jlowin/fastmcp/pull/554)
+  * Expose model preferences in `Context.sample` for flexible model selection. by [@davenpi](https://github.com/davenpi) in [#542](https://github.com/jlowin/fastmcp/pull/542)
+  * Ensure custom routes are respected by [@jlowin](https://github.com/jlowin) in [#558](https://github.com/jlowin/fastmcp/pull/558)
+  * Add client method to send cancellation notifications by [@davenpi](https://github.com/davenpi) in [#563](https://github.com/jlowin/fastmcp/pull/563)
+  * Enhance route map logic for include/exclude OpenAPI routes by [@jlowin](https://github.com/jlowin) in [#564](https://github.com/jlowin/fastmcp/pull/564)
+  * Add tag-based route maps by [@jlowin](https://github.com/jlowin) in [#565](https://github.com/jlowin/fastmcp/pull/565)
+  * Add advanced control of openAPI route creation by [@jlowin](https://github.com/jlowin) in [#566](https://github.com/jlowin/fastmcp/pull/566)
+  * Make error masking configurable by [@jlowin](https://github.com/jlowin) in [#550](https://github.com/jlowin/fastmcp/pull/550)
+  * Ensure client headers are passed through to remote servers by [@jlowin](https://github.com/jlowin) in [#575](https://github.com/jlowin/fastmcp/pull/575)
+  * Use lowercase name for headers when comparing by [@jlowin](https://github.com/jlowin) in [#576](https://github.com/jlowin/fastmcp/pull/576)
+  * Permit more flexible name generation for OpenAPI servers by [@jlowin](https://github.com/jlowin) in [#578](https://github.com/jlowin/fastmcp/pull/578)
+  * Ensure that tools/templates/prompts are compatible with callable objects by [@jlowin](https://github.com/jlowin) in [#579](https://github.com/jlowin/fastmcp/pull/579)
+
+  ### Docs 📚
+
+  * Add version badge for prefix formats by [@jlowin](https://github.com/jlowin) in [#537](https://github.com/jlowin/fastmcp/pull/537)
+  * Add versioning note to docs by [@jlowin](https://github.com/jlowin) in [#551](https://github.com/jlowin/fastmcp/pull/551)
+  * Bump 2.3.6 references to 2.4.0 by [@jlowin](https://github.com/jlowin) in [#567](https://github.com/jlowin/fastmcp/pull/567)
+
+  **Full Changelog**: [v2.4.0...v2.5.0](https://github.com/jlowin/fastmcp/compare/v2.4.0...v2.5.0)
+</Update>
+
+<Update label="v2.4.0" description="2024-05-21">
+  ## [v2.4.0: Config and Conquer](https://github.com/jlowin/fastmcp/releases/tag/v2.4.0)
+
+  **Note**: this release includes a backwards-incompatible change to how resources are prefixed when mounted in composed servers. However, it is only backwards-incompatible if users were running tests or manually loading resources by prefixed key; LLMs should not have any issue discovering the new route. See [Resource Prefix Formats](https://gofastmcp.com/servers/composition#resource-prefix-formats) for more.
+
+  ### New Features 🎉
+
+  * Allow \* Methods and all routes as tools shortcuts by [@jlowin](https://github.com/jlowin) in [#520](https://github.com/jlowin/fastmcp/pull/520)
+  * Improved support for config dicts by [@jlowin](https://github.com/jlowin) in [#522](https://github.com/jlowin/fastmcp/pull/522)
+  * Support creating clients from MCP config dicts, including multi-server clients by [@jlowin](https://github.com/jlowin) in [#527](https://github.com/jlowin/fastmcp/pull/527)
+  * Make resource prefix format configurable by [@jlowin](https://github.com/jlowin) in [#534](https://github.com/jlowin/fastmcp/pull/534)
+
+  ### Fixes 🐞
+
+  * Avoid hanging on initializing server session by [@jlowin](https://github.com/jlowin) in [#523](https://github.com/jlowin/fastmcp/pull/523)
+
+  ### Breaking Changes 🛫
+
+  * Remove customizable separators; improve resource separator by [@jlowin](https://github.com/jlowin) in [#526](https://github.com/jlowin/fastmcp/pull/526)
+
+  ### Docs 📚
+
+  * Improve client documentation by [@jlowin](https://github.com/jlowin) in [#517](https://github.com/jlowin/fastmcp/pull/517)
+
+  ### Other Changes 🦾
+
+  * Ensure openapi path params are handled properly by [@jlowin](https://github.com/jlowin) in [#519](https://github.com/jlowin/fastmcp/pull/519)
+  * better error when missing lifespan by [@zzstoatzz](https://github.com/zzstoatzz) in [#521](https://github.com/jlowin/fastmcp/pull/521)
+
+  **Full Changelog**: [v2.3.5...v2.4.0](https://github.com/jlowin/fastmcp/compare/v2.3.5...v2.4.0)
+</Update>
+
+<Update label="v2.3.5" description="2024-05-20">
+  ## [v2.3.5: Making Progress](https://github.com/jlowin/fastmcp/releases/tag/v2.3.5)
+
+  ### New Features 🎉
+
+  * support messages in progress notifications by [@rickygenhealth](https://github.com/rickygenhealth) in [#471](https://github.com/jlowin/fastmcp/pull/471)
+  * feat: Add middleware option in server.run by [@Maxi91f](https://github.com/Maxi91f) in [#475](https://github.com/jlowin/fastmcp/pull/475)
+  * Add lifespan property to app by [@jlowin](https://github.com/jlowin) in [#483](https://github.com/jlowin/fastmcp/pull/483)
+  * Update `fastmcp run` to work with remote servers by [@jlowin](https://github.com/jlowin) in [#491](https://github.com/jlowin/fastmcp/pull/491)
+  * Add FastMCP.as\_proxy() by [@jlowin](https://github.com/jlowin) in [#490](https://github.com/jlowin/fastmcp/pull/490)
+  * Infer sse transport from urls containing /sse by [@jlowin](https://github.com/jlowin) in [#512](https://github.com/jlowin/fastmcp/pull/512)
+  * Add progress handler to client by [@jlowin](https://github.com/jlowin) in [#513](https://github.com/jlowin/fastmcp/pull/513)
+  * Store the initialize result on the client by [@jlowin](https://github.com/jlowin) in [#509](https://github.com/jlowin/fastmcp/pull/509)
+
+  ### Fixes 🐞
+
+  * Remove patch and use upstream SSEServerTransport by [@jlowin](https://github.com/jlowin) in [#425](https://github.com/jlowin/fastmcp/pull/425)
+
+  ### Docs 📚
+
+  * Update transport docs by [@jlowin](https://github.com/jlowin) in [#458](https://github.com/jlowin/fastmcp/pull/458)
+  * update proxy docs + example by [@zzstoatzz](https://github.com/zzstoatzz) in [#460](https://github.com/jlowin/fastmcp/pull/460)
+  * doc(asgi): Change custom route example to PlainTextResponse by [@mcw0933](https://github.com/mcw0933) in [#477](https://github.com/jlowin/fastmcp/pull/477)
+  * Store FastMCP instance on app.state.fastmcp\_server by [@jlowin](https://github.com/jlowin) in [#489](https://github.com/jlowin/fastmcp/pull/489)
+  * Improve AGENTS.md overview by [@jlowin](https://github.com/jlowin) in [#492](https://github.com/jlowin/fastmcp/pull/492)
+  * Update release numbers for anticipated version by [@jlowin](https://github.com/jlowin) in [#516](https://github.com/jlowin/fastmcp/pull/516)
+
+  ### Other Changes 🦾
+
+  * run tests on all PRs by [@jlowin](https://github.com/jlowin) in [#468](https://github.com/jlowin/fastmcp/pull/468)
+  * add null check by [@zzstoatzz](https://github.com/zzstoatzz) in [#473](https://github.com/jlowin/fastmcp/pull/473)
+  * strict typing for `server.py` by [@zzstoatzz](https://github.com/zzstoatzz) in [#476](https://github.com/jlowin/fastmcp/pull/476)
+  * Doc(quickstart): Fix import statements by [@mai-nakagawa](https://github.com/mai-nakagawa) in [#479](https://github.com/jlowin/fastmcp/pull/479)
+  * Add labeler by [@jlowin](https://github.com/jlowin) in [#484](https://github.com/jlowin/fastmcp/pull/484)
+  * Fix flaky timeout test by increasing timeout (#474) by [@davenpi](https://github.com/davenpi) in [#486](https://github.com/jlowin/fastmcp/pull/486)
+  * Skipping `test_permission_error` if runner is root. by [@ZiadAmerr](https://github.com/ZiadAmerr) in [#502](https://github.com/jlowin/fastmcp/pull/502)
+  * allow passing full uvicorn config by [@zzstoatzz](https://github.com/zzstoatzz) in [#504](https://github.com/jlowin/fastmcp/pull/504)
+  * Skip timeout tests on windows by [@jlowin](https://github.com/jlowin) in [#514](https://github.com/jlowin/fastmcp/pull/514)
+
+  ### New Contributors
+
+  * [@rickygenhealth](https://github.com/rickygenhealth) made their first contribution in [#471](https://github.com/jlowin/fastmcp/pull/471)
+  * [@Maxi91f](https://github.com/Maxi91f) made their first contribution in [#475](https://github.com/jlowin/fastmcp/pull/475)
+  * [@mcw0933](https://github.com/mcw0933) made their first contribution in [#477](https://github.com/jlowin/fastmcp/pull/477)
+  * [@mai-nakagawa](https://github.com/mai-nakagawa) made their first contribution in [#479](https://github.com/jlowin/fastmcp/pull/479)
+  * [@ZiadAmerr](https://github.com/ZiadAmerr) made their first contribution in [#502](https://github.com/jlowin/fastmcp/pull/502)
+
+  **Full Changelog**: [v2.3.4...v2.3.5](https://github.com/jlowin/fastmcp/compare/v2.3.4...v2.3.5)
+</Update>
+
+<Update label="v2.3.4" description="2024-05-15">
+  ## [v2.3.4: Error Today, Gone Tomorrow](https://github.com/jlowin/fastmcp/releases/tag/v2.3.4)
+
+  ### New Features 🎉
+
+  * logging stack trace for easier debugging by [@jbkoh](https://github.com/jbkoh) in [#413](https://github.com/jlowin/fastmcp/pull/413)
+  * add missing StreamableHttpTransport in client exports by [@yihuang](https://github.com/yihuang) in [#408](https://github.com/jlowin/fastmcp/pull/408)
+  * Improve error handling for tools and resources by [@jlowin](https://github.com/jlowin) in [#434](https://github.com/jlowin/fastmcp/pull/434)
+  * feat: add support for removing tools from server by [@davenpi](https://github.com/davenpi) in [#437](https://github.com/jlowin/fastmcp/pull/437)
+  * Prune titles from JSONSchemas by [@jlowin](https://github.com/jlowin) in [#449](https://github.com/jlowin/fastmcp/pull/449)
+  * Declare toolsChanged capability for stdio server. by [@davenpi](https://github.com/davenpi) in [#450](https://github.com/jlowin/fastmcp/pull/450)
+  * Improve handling of exceptiongroups when raised in clients by [@jlowin](https://github.com/jlowin) in [#452](https://github.com/jlowin/fastmcp/pull/452)
+  * Add timeout support to client by [@jlowin](https://github.com/jlowin) in [#455](https://github.com/jlowin/fastmcp/pull/455)
+
+  ### Fixes 🐞
+
+  * Pin to mcp 1.8.1 to resolve callback deadlocks with SHTTP by [@jlowin](https://github.com/jlowin) in [#427](https://github.com/jlowin/fastmcp/pull/427)
+  * Add reprs for OpenAPI objects by [@jlowin](https://github.com/jlowin) in [#447](https://github.com/jlowin/fastmcp/pull/447)
+  * Ensure openapi defs for structured objects are loaded properly by [@jlowin](https://github.com/jlowin) in [#448](https://github.com/jlowin/fastmcp/pull/448)
+  * Ensure tests run against correct python version by [@jlowin](https://github.com/jlowin) in [#454](https://github.com/jlowin/fastmcp/pull/454)
+  * Ensure result is only returned if a new key was found by [@jlowin](https://github.com/jlowin) in [#456](https://github.com/jlowin/fastmcp/pull/456)
+
+  ### Docs 📚
+
+  * Add documentation for tool removal by [@jlowin](https://github.com/jlowin) in [#440](https://github.com/jlowin/fastmcp/pull/440)
+
+  ### Other Changes 🦾
+
+  * Deprecate passing settings to the FastMCP instance by [@jlowin](https://github.com/jlowin) in [#424](https://github.com/jlowin/fastmcp/pull/424)
+  * Add path prefix to test by [@jlowin](https://github.com/jlowin) in [#432](https://github.com/jlowin/fastmcp/pull/432)
+
+  ### New Contributors
+
+  * [@jbkoh](https://github.com/jbkoh) made their first contribution in [#413](https://github.com/jlowin/fastmcp/pull/413)
+  * [@davenpi](https://github.com/davenpi) made their first contribution in [#437](https://github.com/jlowin/fastmcp/pull/437)
+
+  **Full Changelog**: [v2.3.3...v2.3.4](https://github.com/jlowin/fastmcp/compare/v2.3.3...v2.3.4)
+</Update>
+
+<Update label="v2.3.3" description="2024-05-10">
+  ## [v2.3.3: SSE you later](https://github.com/jlowin/fastmcp/releases/tag/v2.3.3)
+
+  This is a hotfix for a bug introduced in 2.3.2 that broke SSE servers
+
+  ### Fixes 🐞
+
+  * Fix bug that sets message path and sse path to same value by [@jlowin](https://github.com/jlowin) in [#405](https://github.com/jlowin/fastmcp/pull/405)
+
+  ### Docs 📚
+
+  * Update composition docs by [@jlowin](https://github.com/jlowin) in [#403](https://github.com/jlowin/fastmcp/pull/403)
+
+  ### Other Changes 🦾
+
+  * Add test for no prefix when importing by [@jlowin](https://github.com/jlowin) in [#404](https://github.com/jlowin/fastmcp/pull/404)
+
+  **Full Changelog**: [v2.3.2...v2.3.3](https://github.com/jlowin/fastmcp/compare/v2.3.2...v2.3.3)
+</Update>
+
+<Update label="v2.3.2" description="2024-05-10">
+  ## [v2.3.2: Stuck in the Middleware With You](https://github.com/jlowin/fastmcp/releases/tag/v2.3.2)
+
+  ### New Features 🎉
+
+  * Allow users to pass middleware to starlette app constructors by [@jlowin](https://github.com/jlowin) in [#398](https://github.com/jlowin/fastmcp/pull/398)
+  * Deprecate transport-specific methods on FastMCP server by [@jlowin](https://github.com/jlowin) in [#401](https://github.com/jlowin/fastmcp/pull/401)
+
+  ### Docs 📚
+
+  * Update CLI docs by [@jlowin](https://github.com/jlowin) in [#402](https://github.com/jlowin/fastmcp/pull/402)
+
+  ### Other Changes 🦾
+
+  * Adding 23 tests for CLI by [@didier-durand](https://github.com/didier-durand) in [#394](https://github.com/jlowin/fastmcp/pull/394)
+
+  **Full Changelog**: [v2.3.1...v2.3.2](https://github.com/jlowin/fastmcp/compare/v2.3.1...v2.3.2)
+</Update>
+
+<Update label="v2.3.1" description="2024-05-09">
+  ## [v2.3.1: For Good-nests Sake](https://github.com/jlowin/fastmcp/releases/tag/v2.3.1)
+
+  This release primarily patches a long-standing bug with nested ASGI SSE servers.
+
+  ### Fixes 🐞
+
+  * Fix tool result serialization when the tool returns a list by [@strawgate](https://github.com/strawgate) in [#379](https://github.com/jlowin/fastmcp/pull/379)
+  * Ensure FastMCP handles nested SSE and SHTTP apps properly in ASGI frameworks by [@jlowin](https://github.com/jlowin) in [#390](https://github.com/jlowin/fastmcp/pull/390)
+
+  ### Docs 📚
+
+  * Update transport docs by [@jlowin](https://github.com/jlowin) in [#377](https://github.com/jlowin/fastmcp/pull/377)
+  * Add llms.txt to docs by [@jlowin](https://github.com/jlowin) in [#384](https://github.com/jlowin/fastmcp/pull/384)
+  * Fixing various text typos by [@didier-durand](https://github.com/didier-durand) in [#385](https://github.com/jlowin/fastmcp/pull/385)
+
+  ### Other Changes 🦾
+
+  * Adding a few tests to Image type by [@didier-durand](https://github.com/didier-durand) in [#387](https://github.com/jlowin/fastmcp/pull/387)
+  * Adding tests for TimedCache by [@didier-durand](https://github.com/didier-durand) in [#388](https://github.com/jlowin/fastmcp/pull/388)
+
+  ### New Contributors
+
+  * [@didier-durand](https://github.com/didier-durand) made their first contribution in [#385](https://github.com/jlowin/fastmcp/pull/385)
+
+  **Full Changelog**: [v2.3.0...v2.3.1](https://github.com/jlowin/fastmcp/compare/v2.3.0...v2.3.1)
+</Update>
+
+<Update label="v2.3.0" description="2024-05-08">
+  ## [v2.3.0: Stream Me Up, Scotty](https://github.com/jlowin/fastmcp/releases/tag/v2.3.0)
+
+  ### New Features 🎉
+
+  * Add streaming support for HTTP transport by [@jlowin](https://github.com/jlowin) in [#365](https://github.com/jlowin/fastmcp/pull/365)
+  * Support streaming HTTP transport in clients by [@jlowin](https://github.com/jlowin) in [#366](https://github.com/jlowin/fastmcp/pull/366)
+  * Add streaming support to CLI by [@jlowin](https://github.com/jlowin) in [#367](https://github.com/jlowin/fastmcp/pull/367)
+
+  ### Fixes 🐞
+
+  * Fix streaming transport initialization by [@jlowin](https://github.com/jlowin) in [#368](https://github.com/jlowin/fastmcp/pull/368)
+
+  ### Docs 📚
+
+  * Update transport documentation for streaming support by [@jlowin](https://github.com/jlowin) in [#369](https://github.com/jlowin/fastmcp/pull/369)
+
+  **Full Changelog**: [v2.2.10...v2.3.0](https://github.com/jlowin/fastmcp/compare/v2.2.10...v2.3.0)
+</Update>
+
+<Update label="v2.2.10" description="2024-05-06">
+  ## [v2.2.10: That's JSON Bourne](https://github.com/jlowin/fastmcp/releases/tag/v2.2.10)
+
+  ### Fixes 🐞
+
+  * Disable automatic JSON parsing of tool args by [@jlowin](https://github.com/jlowin) in [#341](https://github.com/jlowin/fastmcp/pull/341)
+  * Fix prompt test by [@jlowin](https://github.com/jlowin) in [#342](https://github.com/jlowin/fastmcp/pull/342)
+
+  ### Other Changes 🦾
+
+  * Update docs.json by [@jlowin](https://github.com/jlowin) in [#338](https://github.com/jlowin/fastmcp/pull/338)
+  * Add test coverage + tests on 4 examples by [@alainivars](https://github.com/alainivars) in [#306](https://github.com/jlowin/fastmcp/pull/306)
+
+  ### New Contributors
+
+  * [@alainivars](https://github.com/alainivars) made their first contribution in [#306](https://github.com/jlowin/fastmcp/pull/306)
+
+  **Full Changelog**: [v2.2.9...v2.2.10](https://github.com/jlowin/fastmcp/compare/v2.2.9...v2.2.10)
+</Update>
+
+<Update label="v2.2.9" description="2024-05-06">
+  ## [v2.2.9: Str-ing the Pot (Hotfix)](https://github.com/jlowin/fastmcp/releases/tag/v2.2.9)
+
+  This release is a hotfix for the issue detailed in #330
+
+  ### Fixes 🐞
+
+  * Prevent invalid resource URIs by [@jlowin](https://github.com/jlowin) in [#336](https://github.com/jlowin/fastmcp/pull/336)
+  * Coerce numbers to str by [@jlowin](https://github.com/jlowin) in [#337](https://github.com/jlowin/fastmcp/pull/337)
+
+  ### Docs 📚
+
+  * Add client badge by [@jlowin](https://github.com/jlowin) in [#327](https://github.com/jlowin/fastmcp/pull/327)
+  * Update bug.yml by [@jlowin](https://github.com/jlowin) in [#328](https://github.com/jlowin/fastmcp/pull/328)
+
+  ### Other Changes 🦾
+
+  * Update quickstart.mdx example to include import by [@discdiver](https://github.com/discdiver) in [#329](https://github.com/jlowin/fastmcp/pull/329)
+
+  ### New Contributors
+
+  * [@discdiver](https://github.com/discdiver) made their first contribution in [#329](https://github.com/jlowin/fastmcp/pull/329)
+
+  **Full Changelog**: [v2.2.8...v2.2.9](https://github.com/jlowin/fastmcp/compare/v2.2.8...v2.2.9)
+</Update>
+
+<Update label="v2.2.8" description="2024-05-05">
+  ## [v2.2.8: Parse and Recreation](https://github.com/jlowin/fastmcp/releases/tag/v2.2.8)
+
+  ### New Features 🎉
+
+  * Replace custom parsing with TypeAdapter by [@jlowin](https://github.com/jlowin) in [#314](https://github.com/jlowin/fastmcp/pull/314)
+  * Handle \*args/\*\*kwargs appropriately for various components by [@jlowin](https://github.com/jlowin) in [#317](https://github.com/jlowin/fastmcp/pull/317)
+  * Add timeout-graceful-shutdown as a default config for SSE app by [@jlowin](https://github.com/jlowin) in [#323](https://github.com/jlowin/fastmcp/pull/323)
+  * Ensure prompts return descriptions by [@jlowin](https://github.com/jlowin) in [#325](https://github.com/jlowin/fastmcp/pull/325)
+
+  ### Fixes 🐞
+
+  * Ensure that tool serialization has a graceful fallback by [@jlowin](https://github.com/jlowin) in [#310](https://github.com/jlowin/fastmcp/pull/310)
+
+  ### Docs 📚
+
+  * Update docs for clarity by [@jlowin](https://github.com/jlowin) in [#312](https://github.com/jlowin/fastmcp/pull/312)
+
+  ### Other Changes 🦾
+
+  * Remove is\_async attribute by [@jlowin](https://github.com/jlowin) in [#315](https://github.com/jlowin/fastmcp/pull/315)
+  * Dry out retrieving context kwarg by [@jlowin](https://github.com/jlowin) in [#316](https://github.com/jlowin/fastmcp/pull/316)
+
+  **Full Changelog**: [v2.2.7...v2.2.8](https://github.com/jlowin/fastmcp/compare/v2.2.7...v2.2.8)
+</Update>
+
+<Update label="v2.2.7" description="2024-05-03">
+  ## [v2.2.7: You Auth to Know Better](https://github.com/jlowin/fastmcp/releases/tag/v2.2.7)
+
+  ### New Features 🎉
+
+  * use pydantic\_core.to\_json by [@jlowin](https://github.com/jlowin) in [#290](https://github.com/jlowin/fastmcp/pull/290)
+  * Ensure openapi descriptions are included in tool details by [@jlowin](https://github.com/jlowin) in [#293](https://github.com/jlowin/fastmcp/pull/293)
+  * Bump mcp to 1.7.1 by [@jlowin](https://github.com/jlowin) in [#298](https://github.com/jlowin/fastmcp/pull/298)
+  * Add support for tool annotations by [@jlowin](https://github.com/jlowin) in [#299](https://github.com/jlowin/fastmcp/pull/299)
+  * Add auth support by [@jlowin](https://github.com/jlowin) in [#300](https://github.com/jlowin/fastmcp/pull/300)
+  * Add low-level methods to client by [@jlowin](https://github.com/jlowin) in [#301](https://github.com/jlowin/fastmcp/pull/301)
+  * Add method for retrieving current starlette request to FastMCP context by [@jlowin](https://github.com/jlowin) in [#302](https://github.com/jlowin/fastmcp/pull/302)
+  * get\_starlette\_request → get\_http\_request by [@jlowin](https://github.com/jlowin) in [#303](https://github.com/jlowin/fastmcp/pull/303)
+  * Support custom Serializer for Tools by [@strawgate](https://github.com/strawgate) in [#308](https://github.com/jlowin/fastmcp/pull/308)
+  * Support proxy mount by [@jlowin](https://github.com/jlowin) in [#309](https://github.com/jlowin/fastmcp/pull/309)
+
+  ### Other Changes 🦾
+
+  * Improve context injection type checks by [@jlowin](https://github.com/jlowin) in [#291](https://github.com/jlowin/fastmcp/pull/291)
+  * add readme to smarthome example by [@zzstoatzz](https://github.com/zzstoatzz) in [#294](https://github.com/jlowin/fastmcp/pull/294)
+
+  **Full Changelog**: [v2.2.6...v2.2.7](https://github.com/jlowin/fastmcp/compare/v2.2.6...v2.2.7)
+</Update>
+
+<Update label="v2.2.6" description="2024-04-30">
+  ## [v2.2.6: The REST is History](https://github.com/jlowin/fastmcp/releases/tag/v2.2.6)
+
+  ### New Features 🎉
+
+  * Added feature : Load MCP server using config by [@sandipan1](https://github.com/sandipan1) in [#260](https://github.com/jlowin/fastmcp/pull/260)
+  * small typing fixes by [@zzstoatzz](https://github.com/zzstoatzz) in [#237](https://github.com/jlowin/fastmcp/pull/237)
+  * Expose configurable timeout for OpenAPI by [@jlowin](https://github.com/jlowin) in [#279](https://github.com/jlowin/fastmcp/pull/279)
+  * Lower websockets pin for compatibility by [@jlowin](https://github.com/jlowin) in [#286](https://github.com/jlowin/fastmcp/pull/286)
+  * Improve OpenAPI param handling by [@jlowin](https://github.com/jlowin) in [#287](https://github.com/jlowin/fastmcp/pull/287)
+
+  ### Fixes 🐞
+
+  * Ensure openapi tool responses are properly converted by [@jlowin](https://github.com/jlowin) in [#283](https://github.com/jlowin/fastmcp/pull/283)
+  * Fix OpenAPI examples by [@jlowin](https://github.com/jlowin) in [#285](https://github.com/jlowin/fastmcp/pull/285)
+  * Fix client docs for advanced features, add tests for logging by [@jlowin](https://github.com/jlowin) in [#284](https://github.com/jlowin/fastmcp/pull/284)
+
+  ### Other Changes 🦾
+
+  * add testing doc by [@jlowin](https://github.com/jlowin) in [#264](https://github.com/jlowin/fastmcp/pull/264)
+  * \#267 Fix openapi template resource to support multiple path parameters by [@jeger-at](https://github.com/jeger-at) in [#278](https://github.com/jlowin/fastmcp/pull/278)
+
+  ### New Contributors
+
+  * [@sandipan1](https://github.com/sandipan1) made their first contribution in [#260](https://github.com/jlowin/fastmcp/pull/260)
+  * [@jeger-at](https://github.com/jeger-at) made their first contribution in [#278](https://github.com/jlowin/fastmcp/pull/278)
+
+  **Full Changelog**: [v2.2.5...v2.2.6](https://github.com/jlowin/fastmcp/compare/v2.2.5...v2.2.6)
+</Update>
+
+<Update label="v2.2.5" description="2024-04-26">
+  ## [v2.2.5: Context Switching](https://github.com/jlowin/fastmcp/releases/tag/v2.2.5)
+
+  ### New Features 🎉
+
+  * Add tests for tool return types; improve serialization behavior by [@jlowin](https://github.com/jlowin) in [#262](https://github.com/jlowin/fastmcp/pull/262)
+  * Support context injection in resources, templates, and prompts (like tools) by [@jlowin](https://github.com/jlowin) in [#263](https://github.com/jlowin/fastmcp/pull/263)
+
+  ### Docs 📚
+
+  * Update wildcards to 2.2.4 by [@jlowin](https://github.com/jlowin) in [#257](https://github.com/jlowin/fastmcp/pull/257)
+  * Update note in templates docs by [@jlowin](https://github.com/jlowin) in [#258](https://github.com/jlowin/fastmcp/pull/258)
+  * Significant documentation and test expansion for tool input types by [@jlowin](https://github.com/jlowin) in [#261](https://github.com/jlowin/fastmcp/pull/261)
+
+  **Full Changelog**: [v2.2.4...v2.2.5](https://github.com/jlowin/fastmcp/compare/v2.2.4...v2.2.5)
+</Update>
+
+<Update label="v2.2.4" description="2024-04-25">
+  ## [v2.2.4: The Wild Side, Actually](https://github.com/jlowin/fastmcp/releases/tag/v2.2.4)
+
+  The wildcard URI templates exposed in v2.2.3 were blocked by a server-level check which is removed in this release.
+
+  ### New Features 🎉
+
+  * Allow customization of inspector proxy port, ui port, and version by [@jlowin](https://github.com/jlowin) in [#253](https://github.com/jlowin/fastmcp/pull/253)
+
+  ### Fixes 🐞
+
+  * fix: unintended type convert by [@cutekibry](https://github.com/cutekibry) in [#252](https://github.com/jlowin/fastmcp/pull/252)
+  * Ensure openapi resources return valid responses by [@jlowin](https://github.com/jlowin) in [#254](https://github.com/jlowin/fastmcp/pull/254)
+  * Ensure servers expose template wildcards by [@jlowin](https://github.com/jlowin) in [#256](https://github.com/jlowin/fastmcp/pull/256)
+
+  ### Docs 📚
+
+  * Update README.md Grammar error by [@TechWithTy](https://github.com/TechWithTy) in [#249](https://github.com/jlowin/fastmcp/pull/249)
+
+  ### Other Changes 🦾
+
+  * Add resource template tests by [@jlowin](https://github.com/jlowin) in [#255](https://github.com/jlowin/fastmcp/pull/255)
+
+  ### New Contributors
+
+  * [@TechWithTy](https://github.com/TechWithTy) made their first contribution in [#249](https://github.com/jlowin/fastmcp/pull/249)
+  * [@cutekibry](https://github.com/cutekibry) made their first contribution in [#252](https://github.com/jlowin/fastmcp/pull/252)
+
+  **Full Changelog**: [v2.2.3...v2.2.4](https://github.com/jlowin/fastmcp/compare/v2.2.3...v2.2.4)
+</Update>
+
+<Update label="v2.2.3" description="2024-04-25">
+  ## [v2.2.3: The Wild Side](https://github.com/jlowin/fastmcp/releases/tag/v2.2.3)
+
+  ### New Features 🎉
+
+  * Add wildcard params for resource templates by [@jlowin](https://github.com/jlowin) in [#246](https://github.com/jlowin/fastmcp/pull/246)
+
+  ### Docs 📚
+
+  * Indicate that Image class is for returns by [@jlowin](https://github.com/jlowin) in [#242](https://github.com/jlowin/fastmcp/pull/242)
+  * Update mermaid diagram by [@jlowin](https://github.com/jlowin) in [#243](https://github.com/jlowin/fastmcp/pull/243)
+
+  ### Other Changes 🦾
+
+  * update version badges by [@jlowin](https://github.com/jlowin) in [#248](https://github.com/jlowin/fastmcp/pull/248)
+
+  **Full Changelog**: [v2.2.2...v2.2.3](https://github.com/jlowin/fastmcp/compare/v2.2.2...v2.2.3)
+</Update>
+
+<Update label="v2.2.2" description="2024-04-24">
+  ## [v2.2.2: Prompt and Circumstance](https://github.com/jlowin/fastmcp/releases/tag/v2.2.2)
+
+  ### New Features 🎉
+
+  * Add prompt support by [@jlowin](https://github.com/jlowin) in [#235](https://github.com/jlowin/fastmcp/pull/235)
+
+  ### Fixes 🐞
+
+  * Ensure that resource templates are properly exposed by [@jlowin](https://github.com/jlowin) in [#238](https://github.com/jlowin/fastmcp/pull/238)
+
+  ### Docs 📚
+
+  * Update docs for prompts by [@jlowin](https://github.com/jlowin) in [#236](https://github.com/jlowin/fastmcp/pull/236)
+
+  ### Other Changes 🦾
+
+  * Add prompt tests by [@jlowin](https://github.com/jlowin) in [#239](https://github.com/jlowin/fastmcp/pull/239)
+
+  **Full Changelog**: [v2.2.1...v2.2.2](https://github.com/jlowin/fastmcp/compare/v2.2.1...v2.2.2)
+</Update>
+
+<Update label="v2.2.1" description="2024-04-23">
+  ## [v2.2.1: Template for Success](https://github.com/jlowin/fastmcp/releases/tag/v2.2.1)
+
+  ### New Features 🎉
+
+  * Add resource templates by [@jlowin](https://github.com/jlowin) in [#230](https://github.com/jlowin/fastmcp/pull/230)
+
+  ### Fixes 🐞
+
+  * Ensure that resource templates are properly exposed by [@jlowin](https://github.com/jlowin) in [#231](https://github.com/jlowin/fastmcp/pull/231)
+
+  ### Docs 📚
+
+  * Update docs for resource templates by [@jlowin](https://github.com/jlowin) in [#232](https://github.com/jlowin/fastmcp/pull/232)
+
+  ### Other Changes 🦾
+
+  * Add resource template tests by [@jlowin](https://github.com/jlowin) in [#233](https://github.com/jlowin/fastmcp/pull/233)
+
+  **Full Changelog**: [v2.2.0...v2.2.1](https://github.com/jlowin/fastmcp/compare/v2.2.0...v2.2.1)
+</Update>
+
+<Update label="v2.2.0" description="2024-04-22">
+  ## [v2.2.0: Compose Yourself](https://github.com/jlowin/fastmcp/releases/tag/v2.2.0)
+
+  ### New Features 🎉
+
+  * Add support for mounting FastMCP servers by [@jlowin](https://github.com/jlowin) in [#175](https://github.com/jlowin/fastmcp/pull/175)
+  * Add support for duplicate behavior == ignore by [@jlowin](https://github.com/jlowin) in [#169](https://github.com/jlowin/fastmcp/pull/169)
+
+  ### Breaking Changes 🛫
+
+  * Refactor MCP composition by [@jlowin](https://github.com/jlowin) in [#176](https://github.com/jlowin/fastmcp/pull/176)
+
+  ### Docs 📚
+
+  * Improve integration documentation by [@jlowin](https://github.com/jlowin) in [#184](https://github.com/jlowin/fastmcp/pull/184)
+  * Improve documentation by [@jlowin](https://github.com/jlowin) in [#185](https://github.com/jlowin/fastmcp/pull/185)
+
+  ### Other Changes 🦾
+
+  * Add transport kwargs for mcp.run() and fastmcp run by [@jlowin](https://github.com/jlowin) in [#161](https://github.com/jlowin/fastmcp/pull/161)
+  * Allow resource templates to have optional / excluded arguments by [@jlowin](https://github.com/jlowin) in [#164](https://github.com/jlowin/fastmcp/pull/164)
+  * Update resources.mdx by [@jlowin](https://github.com/jlowin) in [#165](https://github.com/jlowin/fastmcp/pull/165)
+
+  ### New Contributors
+
+  * [@kongqi404](https://github.com/kongqi404) made their first contribution in [#181](https://github.com/jlowin/fastmcp/pull/181)
+
+  **Full Changelog**: [v2.1.2...v2.2.0](https://github.com/jlowin/fastmcp/compare/v2.1.2...v2.2.0)
+</Update>
+
+<Update label="v2.1.2" description="2024-04-14">
+  ## [v2.1.2: Copy That, Good Buddy](https://github.com/jlowin/fastmcp/releases/tag/v2.1.2)
+
+  The main improvement in this release is a fix that allows FastAPI / OpenAPI-generated servers to be mounted as sub-servers.
+
+  ### Fixes 🐞
+
+  * Ensure objects are copied properly and test mounting fastapi by [@jlowin](https://github.com/jlowin) in [#153](https://github.com/jlowin/fastmcp/pull/153)
+
+  ### Docs 📚
+
+  * Fix broken links in docs by [@jlowin](https://github.com/jlowin) in [#154](https://github.com/jlowin/fastmcp/pull/154)
+
+  ### Other Changes 🦾
+
+  * Update README.md by [@jlowin](https://github.com/jlowin) in [#149](https://github.com/jlowin/fastmcp/pull/149)
+  * Only apply log config to FastMCP loggers by [@jlowin](https://github.com/jlowin) in [#155](https://github.com/jlowin/fastmcp/pull/155)
+  * Update pyproject.toml by [@jlowin](https://github.com/jlowin) in [#156](https://github.com/jlowin/fastmcp/pull/156)
+
+  **Full Changelog**: [v2.1.1...v2.1.2](https://github.com/jlowin/fastmcp/compare/v2.1.1...v2.1.2)
+</Update>
+
+<Update label="v2.1.1" description="2024-04-14">
+  ## [v2.1.1: Doc Holiday](https://github.com/jlowin/fastmcp/releases/tag/v2.1.1)
+
+  FastMCP's docs are now available at gofastmcp.com.
+
+  ### Docs 📚
+
+  * Add docs by [@jlowin](https://github.com/jlowin) in [#136](https://github.com/jlowin/fastmcp/pull/136)
+  * Add docs link to readme by [@jlowin](https://github.com/jlowin) in [#137](https://github.com/jlowin/fastmcp/pull/137)
+  * Minor docs updates by [@jlowin](https://github.com/jlowin) in [#138](https://github.com/jlowin/fastmcp/pull/138)
+
+  ### Fixes 🐞
+
+  * fix branch name in example by [@zzstoatzz](https://github.com/zzstoatzz) in [#140](https://github.com/jlowin/fastmcp/pull/140)
+
+  ### Other Changes 🦾
+
+  * smart home example by [@zzstoatzz](https://github.com/zzstoatzz) in [#115](https://github.com/jlowin/fastmcp/pull/115)
+  * Remove mac os tests by [@jlowin](https://github.com/jlowin) in [#142](https://github.com/jlowin/fastmcp/pull/142)
+  * Expand support for various method interactions by [@jlowin](https://github.com/jlowin) in [#143](https://github.com/jlowin/fastmcp/pull/143)
+  * Update docs and add\_resource\_fn by [@jlowin](https://github.com/jlowin) in [#144](https://github.com/jlowin/fastmcp/pull/144)
+  * Update description by [@jlowin](https://github.com/jlowin) in [#145](https://github.com/jlowin/fastmcp/pull/145)
+  * Support openapi 3.0 and 3.1 by [@jlowin](https://github.com/jlowin) in [#147](https://github.com/jlowin/fastmcp/pull/147)
+
+  **Full Changelog**: [v2.1.0...v2.1.1](https://github.com/jlowin/fastmcp/compare/v2.1.0...v2.1.1)
+</Update>
+
+<Update label="v2.1.0" description="2024-04-13">
+  ## [v2.1.0: Tag, You're It](https://github.com/jlowin/fastmcp/releases/tag/v2.1.0)
+
+  The primary motivation for this release is the fix in #128 for Claude desktop compatibility, but the primary new feature of this release is per-object tags. Currently these are for bookkeeping only but will become useful in future releases.
+
+  ### New Features 🎉
+
+  * Add tags for all core MCP objects by [@jlowin](https://github.com/jlowin) in [#121](https://github.com/jlowin/fastmcp/pull/121)
+  * Ensure that openapi tags are transferred to MCP objects by [@jlowin](https://github.com/jlowin) in [#124](https://github.com/jlowin/fastmcp/pull/124)
+
+  ### Fixes 🐞
+
+  * Change default mounted tool separator from / to \_ by [@jlowin](https://github.com/jlowin) in [#128](https://github.com/jlowin/fastmcp/pull/128)
+  * Enter mounted app lifespans by [@jlowin](https://github.com/jlowin) in [#129](https://github.com/jlowin/fastmcp/pull/129)
+  * Fix CLI that called mcp instead of fastmcp by [@jlowin](https://github.com/jlowin) in [#128](https://github.com/jlowin/fastmcp/pull/128)
+
+  ### Breaking Changes 🛫
+
+  * Changed configuration for duplicate resources/tools/prompts by [@jlowin](https://github.com/jlowin) in [#121](https://github.com/jlowin/fastmcp/pull/121)
+  * Improve client return types by [@jlowin](https://github.com/jlowin) in [#123](https://github.com/jlowin/fastmcp/pull/123)
+
+  ### Other Changes 🦾
+
+  * Add tests for tags in server decorators by [@jlowin](https://github.com/jlowin) in [#122](https://github.com/jlowin/fastmcp/pull/122)
+  * Clean up server tests by [@jlowin](https://github.com/jlowin) in [#125](https://github.com/jlowin/fastmcp/pull/125)
+
+  **Full Changelog**: [v2.0.0...v2.1.0](https://github.com/jlowin/fastmcp/compare/v2.0.0...v2.1.0)
+</Update>
+
+<Update label="v2.0.0" description="2024-04-11">
+  ## [v2.0.0: Second to None](https://github.com/jlowin/fastmcp/releases/tag/v2.0.0)
+
+'''
 
 # 测试提示词列表
 test_prompts = [
-    # 1. 战略环境分析（SWOT+PEST）
-    "请运用SWOT分析框架，深入分析创新科技集团的内部优势(Strengths)、劣势(Weaknesses)、外部机会(Opportunities)和威胁(Threats)。同时结合PEST分析（政治Political、经济Economic、社会Social、技术Technological），全面评估企业所处的宏观环境。要求分析具体、深入，每个维度至少提出5个关键要点，并说明其对企业战略制定的影响。",
-
-    # 2. 业务组合优化建议
-    "基于波士顿咨询矩阵(BCG Matrix)和GE矩阵，对公司五大事业部进行分类评估。分析各业务单元的市场增长率、相对市场份额、行业吸引力和企业竞争地位。提出具体的业务组合优化策略，包括：哪些业务需要重点投资、哪些业务需要维持现状、哪些业务需要收缩或剥离。为每个业务单元制定未来3-5年的发展路径和资源配置建议。",
-
-    # 3. 核心竞争力构建
-    "识别并分析创新科技集团的核心竞争力现状，评估其可持续性和独特性。基于价值链分析，找出企业在研发、生产、营销、服务等环节的优势和短板。提出构建新核心竞争力的具体方案，包括技术创新、人才培养、组织能力、品牌建设等方面。设计核心竞争力评估指标体系，制定提升计划和时间表。",
-
-    # 4. 数字化转型路线图
-    "制定全面的数字化转型战略，涵盖技术架构、业务流程、组织变革、文化建设等多个维度。分析当前数字化成熟度，识别转型重点和难点。设计分阶段实施计划，包括短期(1-2年)、中期(3-5年)、长期(5-10年)目标。提出具体的技术选型建议、投资预算、风险控制措施和成效评估方法。",
-
-    # 5. 国际化扩张策略
-    "评估公司国际化现状和潜力，分析目标市场的机会和挑战。制定差异化的区域进入策略，包括市场选择、进入模式、本土化程度、合作伙伴选择等。设计国际化组织架构和管理体系，提出跨文化管理、风险控制、合规管理等方面的具体措施。制定国际化时间表和里程碑，设定可量化的目标指标。",
-
-    # 6. 创新生态系统建设
-    "设计开放式创新战略，构建以公司为核心的创新生态系统。分析内部创新能力和外部创新资源，提出产学研合作、创业孵化、投资并购、技术联盟等多种创新模式。制定创新项目管理体系，包括创意征集、项目筛选、资源配置、进度监控、成果转化等环节。建立创新文化和激励机制，营造鼓励创新、宽容失败的组织氛围。",
-
-    # 7. 可持续发展战略
-    "制定ESG(环境、社会、治理)战略，将可持续发展理念融入企业经营的各个环节。分析公司在碳排放、资源利用、员工权益、社区责任、公司治理等方面的现状和改进空间。提出具体的可持续发展目标和行动计划，包括绿色技术研发、清洁生产、循环经济、社会公益等方面。设计ESG绩效评估体系，建立定期报告和披露机制。",
-
-    # 8. 风险管理体系
-    "识别和评估企业面临的各类风险，包括战略风险、运营风险、财务风险、合规风险、技术风险、声誉风险等。建立全面的风险管理框架，包括风险识别、评估、应对、监控、报告等环节。制定具体的风险应对策略和应急预案，建立风险管理组织架构和责任体系。设计风险管理信息系统，实现风险的动态监控和预警。",
-
-    # 9. 实施路径和保障措施
-    "制定战略实施的详细路线图，包括关键任务分解、时间节点安排、责任主体确定、资源需求评估等。设计项目管理体系，建立战略执行的监控和评估机制。提出组织变革和文化建设的具体措施，确保战略落地执行。制定沟通计划，加强内外部利益相关者的理解和支持。建立激励约束机制，将战略目标与绩效考核挂钩。",
-
-    # 10. 财务预测和价值评估
-    "基于战略规划，编制未来5年的财务预测，包括营收增长、成本控制、投资支出、现金流等关键指标。进行敏感性分析，评估不同情景下的财务表现。运用DCF、EVA等方法，评估战略实施对企业价值的影响。制定融资策略，分析资金需求和来源，优化资本结构。建立财务监控体系，确保战略实施的财务可行性。",
-]
+    "FastMCP 1.x 和 2.x 在「服务器组合、代理以及 OpenAPI → MCP 生成」这三点上到底新增了哪些 API？有无迁移指南或破坏性变更列表",
+    "STDIO 与 SSE 两种传输方式在「进程生命周期、并发模型、连接复用」上的底层差异是什么？文档里是否给出了选择建议或性能基准?",
+    "当「初始化参数、环境变量、dotenv 文件、运行时 run() 参数」同时出现时，真正的优先级顺序和合并规则是什么？",
+    "on_duplicate_tools / resources / prompts 三个配置项在冲突时到底会抛出异常、忽略还是后覆盖前？有无调试日志可追踪？",
+    "Pydantic 支持的所有类型（含自定义类型）都能被 FastMCP 正确序列化/反序列化吗？对于无法隐式转换的值，异常格式是什么样的？",
+    "ctx.get_http_request() 仅在 SSE 或 streamable-http 模式下可用，还是 STDIO 也能用？文档是否列出了所有可用的上下文属性及线程安全保证？",
+    "官方 Client 在 async with 块外是否保持 TCP 连接？高频调用时是否需要手动连接池？文档有无给出最佳实践？",
+    "FastMCP 如何将 OpenAPI 的 path / query / header / body 参数一一映射到 MCP tool 的 schema？对于 anyOf / oneOf / allOf 这类复杂 schema 有无示例？",
+    "官方文档是否给出了「认证、鉴权、HTTPS、CORS、日志脱敏」等安全加固的完整示例或推荐插件？",
+    "除了 log_level 外，FastMCP 是否内置 tracing/metrics 钩子？文档里是否提供了与 Prometheus、OpenTelemetry 集成的例子",
+    ]

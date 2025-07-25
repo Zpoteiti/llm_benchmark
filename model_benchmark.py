@@ -28,7 +28,8 @@ class BenchmarkResult:
     response_tokens: int
     total_tokens: int
     generation_time: float
-    tokens_per_second: float
+    total_tokens_per_second: float
+    response_tokens_per_second: float
     latency: float
     timestamp: str
     success: bool
@@ -101,7 +102,9 @@ class ModelBenchmark:
             #     response_tokens = len(response_content)
             #     total_tokens = prompt_tokens + response_tokens
             
-            tokens_per_second = total_tokens / generation_time if total_tokens > 0 else 0
+            # 计算两种token速度指标
+            total_tokens_per_second = total_tokens / generation_time if total_tokens > 0 else 0
+            response_tokens_per_second = response_tokens / generation_time if response_tokens > 0 else 0
             latency = generation_time
             
             return BenchmarkResult(
@@ -110,7 +113,8 @@ class ModelBenchmark:
                 response_tokens=response_tokens,
                 total_tokens=total_tokens,
                 generation_time=generation_time,
-                tokens_per_second=tokens_per_second,
+                total_tokens_per_second=total_tokens_per_second,
+                response_tokens_per_second=response_tokens_per_second,
                 latency=latency,
                 timestamp=datetime.now().isoformat(),
                 success=True
@@ -123,7 +127,8 @@ class ModelBenchmark:
                 response_tokens=0,
                 total_tokens=0,
                 generation_time=end_time - start_time,
-                tokens_per_second=0,
+                total_tokens_per_second=0,
+                response_tokens_per_second=0,
                 latency=end_time - start_time,
                 timestamp=datetime.now().isoformat(),
                 success=False,
@@ -167,7 +172,7 @@ class ModelBenchmark:
                     self.results.append(result)
                     
                     if result.success:
-                        print(f"      Success: {result.tokens_per_second:.2f} tokens/sec")
+                        print(f"      Success: {result.total_tokens_per_second:.2f} tokens/sec")
                     else:
                         print(f"      Failed: {result.error_message}")
     
@@ -186,7 +191,7 @@ class ModelBenchmark:
         with open(output_file, 'w', newline='', encoding='utf-8') as csvfile:
             fieldnames = [
                 'model_name', 'prompt_tokens', 'response_tokens', 'total_tokens',
-                'generation_time', 'tokens_per_second', 'latency', 'timestamp',
+                'generation_time', 'total_tokens_per_second', 'response_tokens_per_second', 'latency', 'timestamp',
                 'success', 'error_message'
             ]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -199,7 +204,8 @@ class ModelBenchmark:
                     'response_tokens': result.response_tokens,
                     'total_tokens': result.total_tokens,
                     'generation_time': result.generation_time,
-                    'tokens_per_second': result.tokens_per_second,
+                    'total_tokens_per_second': result.total_tokens_per_second,
+                    'response_tokens_per_second': result.response_tokens_per_second,
                     'latency': result.latency,
                     'timestamp': result.timestamp,
                     'success': result.success,
@@ -241,32 +247,36 @@ class ModelBenchmark:
             print(f"  Failed tests: {len(failed)}")
             
             if successful:
-                tps_values = [r.tokens_per_second for r in successful]
+                total_tps_values = [r.total_tokens_per_second for r in successful]
+                response_tps_values = [r.response_tokens_per_second for r in successful]
                 latency_values = [r.latency for r in successful]
                 tokens_per_response = [r.response_tokens for r in successful]
                 
-                print(f"  Average tokens/sec: {statistics.mean(tps_values):.2f}")
-                print(f"  Median tokens/sec: {statistics.median(tps_values):.2f}")
-                print(f"  Min tokens/sec: {min(tps_values):.2f}")
-                print(f"  Max tokens/sec: {max(tps_values):.2f}")
+                print(f"  Average total tokens/sec: {statistics.mean(total_tps_values):.2f}")
+                print(f"  Average response tokens/sec: {statistics.mean(response_tps_values):.2f}")
+                print(f"  Median total tokens/sec: {statistics.median(total_tps_values):.2f}")
+                print(f"  Median response tokens/sec: {statistics.median(response_tps_values):.2f}")
+                print(f"  Max total tokens/sec: {max(total_tps_values):.2f}")
+                print(f"  Max response tokens/sec: {max(response_tps_values):.2f}")
                 print(f"  Average latency: {statistics.mean(latency_values):.2f}s")
                 print(f"  Average tokens per response: {statistics.mean(tokens_per_response):.1f}")
                 
-                performance_data.append((model_name, statistics.mean(tps_values)))
+                # 使用response tokens/sec作为主要性能指标进行排名
+                performance_data.append((model_name, statistics.mean(response_tps_values)))
             
             print()
         
         # 按性能排序并显示
         if performance_data:
             print("=" * 80)
-            print("PERFORMANCE RANKING")
+            print("PERFORMANCE RANKING (by Response Tokens/sec)")
             print("=" * 80)
             
-            # 按tokens/sec降序排序
+            # 按response tokens/sec降序排序
             performance_data.sort(key=lambda x: x[1], reverse=True)
             
-            for i, (model_name, avg_tps) in enumerate(performance_data, 1):
-                print(f"{i}. {model_name}: {avg_tps:.2f} tokens/sec")
+            for i, (model_name, avg_response_tps) in enumerate(performance_data, 1):
+                print(f"{i}. {model_name}: {avg_response_tps:.2f} response tokens/sec")
         
         print("=" * 80)
 

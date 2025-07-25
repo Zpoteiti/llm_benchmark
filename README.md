@@ -52,6 +52,27 @@ models:
 * `max_tokens`：生成最大 token 数，默认 `None`（由服务端决定）
 * `extra_body`：透传给 `/chat/completions` 的自定义字段，底层通过 `extra_body` 发送
 
+### 1. CSV报告
+测试结果会保存为CSV文件，包含以下字段：
+- `model_name`: 模型名称
+- `prompt_tokens`: 输入提示词的token数量
+- `response_tokens`: 模型响应的token数量
+- `total_tokens`: 总token数（输入+输出）
+- `generation_time`: 生成时间（秒）
+- `total_tokens_per_second`: 总token生成速度（包含输入处理时间）
+- `response_tokens_per_second`: 响应token生成速度（纯输出速度）
+- `latency`: 延迟
+- `timestamp`: 时间戳
+- `success`: 是否成功
+- `error_message`: 错误信息（如有）
+
+### 2. 控制台摘要
+程序会在控制台输出详细的统计摘要，包括：
+- 各模型的成功/失败测试数量
+- 平均、中位数、最大总token生成率和响应token生成率
+- 平均延迟和响应token数量
+- 基于响应token生成速度的性能排名
+
 ## 变更记录
 
 * **2025-07-24**：
