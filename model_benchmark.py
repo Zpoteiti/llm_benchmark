@@ -95,12 +95,6 @@ class ModelBenchmark:
                 response_tokens = response.usage.completion_tokens
                 total_tokens = response.usage.total_tokens
                 print(f"prompt_tokens: {prompt_tokens}, response_tokens: {response_tokens}, total_tokens: {total_tokens}")
-            # else:
-            #     # 回退到字符数估算（不准确，但总比没有好）
-            #     print("response.usage is None, falling back to character count")
-            #     prompt_tokens = len(messages[1]['content'])
-            #     response_tokens = len(response_content)
-            #     total_tokens = prompt_tokens + response_tokens
             
             # 计算两种token速度指标
             total_tokens_per_second = total_tokens / generation_time if total_tokens > 0 else 0
