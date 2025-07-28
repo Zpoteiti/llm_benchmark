@@ -1,0 +1,16 @@
+Qwen_Qwen2.5-32B-Instruct-GPTQ-Int4:
+  Successful tests: 30
+  Failed tests: 0
+  Average total tokens/sec: 7752.14
+  Average response tokens/sec: 24.72
+  Median total tokens/sec: 8629.09
+  Median response tokens/sec: 23.41
+  Max total tokens/sec: 13587.92
+  Max response tokens/sec: 36.41
+  Average latency: 2.43s
+  Average tokens per response: 443.4
+  Average preprocess time: 2428.2ms
+  Average generation time: 16032.4ms
+  Average preprocess speed: 165127.2 tokens/sec
+  Average generation speed: 26.5 tokens/sec
+  Streaming tests: 30/30
