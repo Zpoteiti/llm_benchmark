@@ -1,0 +1,16 @@
+Qwen_Qwen3-32B-AWQ:
+  Successful tests: 29
+  Failed tests: 1
+  Average total tokens/sec: 1027.56
+  Average response tokens/sec: 5.03
+  Median total tokens/sec: 981.59
+  Median response tokens/sec: 5.16
+  Max total tokens/sec: 1402.12
+  Max response tokens/sec: 8.34
+  Average latency: 68.90s
+  Average tokens per response: 572.8
+  Average preprocess time: 68904.2ms
+  Average generation time: 42972.8ms
+  Average preprocess speed: 1643.9 tokens/sec
+  Average generation speed: 13.2 tokens/sec
+  Streaming tests: 29/29
