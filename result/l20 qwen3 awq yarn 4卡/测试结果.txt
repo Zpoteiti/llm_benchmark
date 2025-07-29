@@ -1,6 +1,3 @@
-Total results collected: 30
-Models tested: 1
-
 Qwen_Qwen3-32B-AWQ:
   Successful tests: 29
   Failed tests: 1
