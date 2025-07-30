@@ -24,6 +24,7 @@
 - **实时性能**: 测量真实的token生成速度
 - **详细分析**: 提供完整的性能分解数据
 - **自动获取用量**: 通过 `stream_options={"include_usage": True}` 获取精确的token统计
+- **热身机制**: 自动执行热身测试消除首次运行的缓存影响
 
 ## 使用方法
 
@@ -31,16 +32,22 @@
 
 ```bash
 # 测试所有模型
-python3 model_benchmark.py
+python model_benchmark.py
 
 # 测试特定模型
-python3 model_benchmark.py --models "model1,model2"
+python model_benchmark.py --models "model1,model2"
 
 # 指定测试次数
-python3 model_benchmark.py --runs 5
+python model_benchmark.py --runs 5
 
 # 指定输出文件
-python3 model_benchmark.py --output my_results.csv
+python model_benchmark.py --output my_results.csv
+
+# 自用示例
+python model_benchmark.py --output H20-Qwen_Qwen3-30B-A3B-GPTQ-Int4-yarn.csv --runs 1
+
+# 禁用热身测试
+python model_benchmark.py --no-warmup
 ```
 
 ### 命令行参数
@@ -49,6 +56,7 @@ python3 model_benchmark.py --output my_results.csv
 - `--runs RUNS`: 每个提示词的运行次数（默认：3）
 - `--output OUTPUT`: 输出CSV文件名（默认：自动生成）
 - `--config CONFIG`: 配置文件路径（默认：configs.yaml）
+- `--no-warmup`: 禁用热身测试（默认：启用热身）
 
 ## 输出指标说明
 
@@ -73,6 +81,8 @@ python3 model_benchmark.py --output my_results.csv
 
 ```
 Testing Qwen_Qwen3-30B-A3B-GPTQ-Int4...
+  Warmup...
+    Warmup completed: 85.2 generation tokens/sec
   Prompt 1/10
     Run 1/3
       Success: 11470.01 total tokens/sec, 87.0 generation tokens/sec, 135981.1 preprocess tokens/sec
@@ -121,8 +131,16 @@ stream_options={"include_usage": True}
 
 ### 精确Token统计
 
-- **优先使用API返回值**: 通过 `stream_options` 获取精确的token统计
+- **使用API返回值**: 通过 `stream_options={"include_usage": True}` 获取精确的token统计
+- **保证数据准确性**: 依赖API提供的准确token计数，无需估算
 - **完整错误处理**: robust的异常处理确保测试稳定性
+
+### 热身机制
+
+- **自动热身**: 每个模型测试前自动执行一次热身请求
+- **消除冷启动影响**: 预热模型缓存、GPU内存、连接池等
+- **简短热身提示**: 使用 "Hello, how are you?" 进行快速热身
+- **可选配置**: 通过 `--no-warmup` 参数可以禁用热身功能
 
 ### 输出报告
 
@@ -133,6 +151,29 @@ stream_options={"include_usage": True}
 ## 安装依赖
 
 ```bash
-pip install -r requitements.txt
+pip install openai>=1.6.1 PyYAML>=6.0
 ```
+
+或者使用requirements.txt:
+
+```bash
+pip install -r requirements.txt
+```
+
+## 变更记录
+
+* **2025-01-20**：
+  * **重大更新**: 移除非流式支持，专注于流式性能测试
+  * **简化指标**: 移除冗余的 `response_tokens_per_second`、`latency` 和 `first_token_time` 字段
+  * **优化Token获取**: 添加 `stream_options={"include_usage": True}` 支持精确token统计
+  * **改进精度**: 直接使用API返回的精确token统计，移除估算回退机制
+  * **性能聚焦**: 以 `generation_speed` 作为核心性能指标进行排名
+  * **统一输出格式**: 控制台输出统一使用 tokens/sec 单位，提升可读性
+  * **热身机制**: 添加自动热身功能消除首次运行的缓存影响
+  * **代码优化**: 移除不必要的导入、变量和分支，提升代码简洁性
+  
+* **2025-07-24**：
+  * 修复 `extra_body` 参数会导致未知关键字错误的问题
+  * 更新依赖版本（`openai>=1.6.1`, `PyYAML>=6.0`）
+  * 完善配置说明和README文档
 

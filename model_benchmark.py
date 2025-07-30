@@ -112,12 +112,11 @@ class ModelBenchmark:
             preprocess_time = first_chunk_time - start_time if first_chunk_time else total_time
             generation_time = end_time - first_chunk_time if first_chunk_time else 0
             
-            # 获取token数量 - 优先使用API返回的精确值
-            if usage_info:
-                prompt_tokens = usage_info.prompt_tokens
-                response_tokens = usage_info.completion_tokens
-                total_tokens = usage_info.total_tokens
-                print(f"prompt_tokens: {prompt_tokens}, response_tokens: {response_tokens}, total_tokens: {total_tokens}")
+            # 获取token数量 - 使用API返回的精确值
+            prompt_tokens = usage_info.prompt_tokens
+            response_tokens = usage_info.completion_tokens
+            total_tokens = usage_info.total_tokens
+            print(f"prompt_tokens: {prompt_tokens}, response_tokens: {response_tokens}, total_tokens: {total_tokens}")
             
             # 计算速度指标
             total_tokens_per_second = total_tokens / total_time if total_time > 0 else 0
@@ -156,7 +155,7 @@ class ModelBenchmark:
     
 
     
-    def run_benchmark(self, model_keys: Optional[List[str]] = None, runs_per_prompt: int = 3) -> None:
+    def run_benchmark(self, model_keys: Optional[List[str]] = None, runs_per_prompt: int = 3, enable_warmup: bool = True) -> None:
         """Run streaming benchmark tests for specified models."""
         model_configs = self.get_model_configs()
         
@@ -176,12 +175,24 @@ class ModelBenchmark:
             print("Error: No valid models specified")
             return
         
-        print(f"Starting streaming benchmark with {len(valid_model_keys)} models, {runs_per_prompt} runs per prompt")
+        warmup_status = "with warmup" if enable_warmup else "without warmup"
+        print(f"Starting streaming benchmark with {len(valid_model_keys)} models, {runs_per_prompt} runs per prompt ({warmup_status})")
         
         # 对每个模型运行测试
         for model_key in valid_model_keys:
             config = model_configs[model_key]
             print(f"\nTesting {config.name}...")
+            
+            # 执行热身测试（如果启用）
+            if enable_warmup:
+                print("  Warmup...")
+                warmup_prompt = "Hello, how are you?"  # 简短的热身提示词
+                warmup_result = self.run_single_test(config, warmup_prompt, -1)  # 使用-1标识热身轮次
+                if warmup_result.success:
+                    print(f"    Warmup completed: {warmup_result.generation_speed:.2f} generation tokens/sec")
+                else:
+                    print(f"    Warmup failed: {warmup_result.error_message}")
+                # 不将热身结果添加到正式结果中
             
             # 对每个提示词运行多次测试
             for prompt_idx, prompt in enumerate(self.test_prompts):
@@ -324,6 +335,7 @@ def main():
     parser.add_argument('--runs', type=int, default=3, help='Runs per prompt (default: 3)')
     parser.add_argument('--output', help='Output CSV filename (default: auto-generated)')
     parser.add_argument('--config', default='configs.yaml', help='Path to config file (default: configs.yaml)')
+    parser.add_argument('--no-warmup', action='store_true', help='Disable warmup run (default: warmup enabled)')
     args = parser.parse_args()
     
     try:
@@ -339,7 +351,8 @@ def main():
             model_keys = [model.strip() for model in args.models.split(',')]
         
         # 运行基准测试
-        benchmark.run_benchmark(model_keys=model_keys, runs_per_prompt=args.runs)
+        enable_warmup = not args.no_warmup
+        benchmark.run_benchmark(model_keys=model_keys, runs_per_prompt=args.runs, enable_warmup=enable_warmup)
         
         # 保存结果
         benchmark.save_results_to_csv(args.output)
