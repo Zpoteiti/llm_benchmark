@@ -1,0 +1,11 @@
+Qwen_Qwen3-30B-A3B-FP8:
+  Successful tests: 10
+  Failed tests: 0
+  Average total tokens/sec: 9708.68
+  Median total tokens/sec: 9169.56
+  Max total tokens/sec: 11765.13
+  Average tokens per response: 971.6
+  Average preprocess time: 619.8ms
+  Average generation time: 11875.7ms
+  Average preprocess speed: 194377.6 tokens/sec
+  Average generation speed: 81.8 tokens/sec
