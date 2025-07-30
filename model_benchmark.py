@@ -103,7 +103,6 @@ class ModelBenchmark:
                 
                 # 尝试获取usage信息（某些API在最后的chunk中包含usage）
                 if hasattr(chunk, 'usage') and chunk.usage:
-                    print(chunk)
                     usage_info = chunk.usage
             
             end_time = time.time()
