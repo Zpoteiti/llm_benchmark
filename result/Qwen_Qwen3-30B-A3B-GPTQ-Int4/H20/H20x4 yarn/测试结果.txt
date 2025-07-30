@@ -1,0 +1,11 @@
+Qwen_Qwen3-30B-A3B-GPTQ-Int4:
+  Successful tests: 10
+  Failed tests: 0
+  Average total tokens/sec: 13051.33
+  Median total tokens/sec: 11476.98
+  Max total tokens/sec: 20247.03
+  Average tokens per response: 903.3
+  Average preprocess time: 806.2ms
+  Average generation time: 8770.4ms
+  Average preprocess speed: 148438.4 tokens/sec
+  Average generation speed: 103.0 tokens/sec

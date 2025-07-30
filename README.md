@@ -159,21 +159,3 @@ pip install openai>=1.6.1 PyYAML>=6.0
 ```bash
 pip install -r requirements.txt
 ```
-
-## 变更记录
-
-* **2025-01-20**：
-  * **重大更新**: 移除非流式支持，专注于流式性能测试
-  * **简化指标**: 移除冗余的 `response_tokens_per_second`、`latency` 和 `first_token_time` 字段
-  * **优化Token获取**: 添加 `stream_options={"include_usage": True}` 支持精确token统计
-  * **改进精度**: 直接使用API返回的精确token统计，移除估算回退机制
-  * **性能聚焦**: 以 `generation_speed` 作为核心性能指标进行排名
-  * **统一输出格式**: 控制台输出统一使用 tokens/sec 单位，提升可读性
-  * **热身机制**: 添加自动热身功能消除首次运行的缓存影响
-  * **代码优化**: 移除不必要的导入、变量和分支，提升代码简洁性
-  
-* **2025-07-24**：
-  * 修复 `extra_body` 参数会导致未知关键字错误的问题
-  * 更新依赖版本（`openai>=1.6.1`, `PyYAML>=6.0`）
-  * 完善配置说明和README文档
-

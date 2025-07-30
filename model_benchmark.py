@@ -116,7 +116,6 @@ class ModelBenchmark:
             prompt_tokens = usage_info.prompt_tokens
             response_tokens = usage_info.completion_tokens
             total_tokens = usage_info.total_tokens
-            print(f"prompt_tokens: {prompt_tokens}, response_tokens: {response_tokens}, total_tokens: {total_tokens}")
             
             # 计算速度指标
             total_tokens_per_second = total_tokens / total_time if total_time > 0 else 0
