@@ -1,0 +1,11 @@
+Qwen_Qwen2.5-VL-72B-Instruct-AWQ:
+  Successful tests: 10
+  Failed tests: 0
+  Average total tokens/sec: 2156.92
+  Median total tokens/sec: 1851.24
+  Max total tokens/sec: 4849.81
+  Average tokens per response: 531.0
+  Average preprocess time: 4358.1ms
+  Average generation time: 14578.1ms
+  Average preprocess speed: 83985.0 tokens/sec
+  Average generation speed: 36.4 tokens/sec
